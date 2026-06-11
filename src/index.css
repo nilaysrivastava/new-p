@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  font-family:
+    Inter,
+    system-ui,
+    sans-serif;
+
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: #020617;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+}
+
+@keyframes achievement-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-achievement-marquee {
+  animation: achievement-marquee 25s linear infinite;
+}
+
+.animate-achievement-marquee:hover {
+  animation-play-state: paused;
+}
+
+.achievement-marquee {
+  animation: achievement-marquee 38s linear infinite;
+  will-change: transform;
+}
+
+.achievement-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes achievement-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(-50% - 12px), 0, 0);
+  }
+}
