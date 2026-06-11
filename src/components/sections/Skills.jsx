@@ -17,7 +17,6 @@ const skillCategories = [
       "PyTorch",
       "Machine Learning",
       "Deep Learning",
-      "Computer Vision",
       "NLP",
       "Graph Neural Networks",
       "Artificial Neural Networks",

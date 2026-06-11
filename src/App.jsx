@@ -39,7 +39,7 @@ function App() {
 
 
 const PROGRESS_DURATION = 1000;
-const HOLD_DURATION = 1200;
+const HOLD_DURATION = 1000;
 
 useEffect(() => {
   const timer = setTimeout(() => {

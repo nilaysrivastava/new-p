@@ -67,7 +67,6 @@ const experiences = [
       "PostgreSQL",
       "Docker",
       "Kubernetes",
-      "Cloud Infrastructure",
       "AWS",
       "REST APIs",
       "Cloud Infrastructure",
