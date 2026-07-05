@@ -50,6 +50,14 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const scrollToSection = (id) => {
     setMenuOpen(false);
 
@@ -60,279 +68,452 @@ const Navbar = () => {
 
   return (
     <>
-      <header
+      <motion.header
+        initial={{ y: -80 }}
+        animate={{ y: 0 }}
+        transition={{
+          duration: 0.7,
+          ease: [0.22, 1, 0.36, 1],
+        }}
         className={`
           fixed
           left-0
           top-0
           z-50
           w-full
-          transition-all
-          duration-300
-          ${scrolled ? "py-4" : "py-6"}
+          border-b
+          transition-colors
+          duration-500
+          ${
+            scrolled
+              ? "border-orange-500/25 bg-black/90 backdrop-blur-xl"
+              : "border-white/15 bg-black/35 backdrop-blur-sm"
+          }
         `}
       >
         <div
           className="
             mx-auto
             flex
-            justify-center
-            px-4
+            h-[72px]
+            w-full
+            max-w-[1600px]
+            items-stretch
+            px-5
+            sm:px-8
+            lg:px-12
           "
         >
           <div
             className="
               flex
               items-center
-              justify-between
-              rounded-full
-              border
-              border-white/10
-              bg-white/5
-              px-5
-              py-3
-              backdrop-blur-2xl
-              shadow-[0_8px_40px_rgba(0,0,0,0.35)]
-              w-full
-              max-w-full
-              gap-8
+              border-r
+              border-white/15
+              pr-6
+              sm:pr-8
             "
           >
-            {/* LOGO */}
-
-            <button
+            <motion.button
+              type="button"
               onClick={() => scrollToSection("home")}
+              whileHover={{ x: 2 }}
+              whileTap={{ scale: 0.96 }}
               className="
+                group
+                relative
                 cursor-pointer
-                text-lg
-                font-bold
-                bg-gradient-to-r
-                from-cyan-400
-                via-violet-400
-                to-pink-400
-                bg-clip-text
-                text-transparent
-                shrink-0
+                font-mono-tech
+                text-base
+                font-semibold
+                tracking-[0.18em]
+                text-white
               "
             >
               NS
-            </button>
+              <span
+                className="
+                  absolute
+                  -right-2
+                  top-0
+                  h-1
+                  w-1
+                  bg-orange-500
+                  transition-transform
+                  duration-300
+                  group-hover:scale-150
+                "
+              />
+            </motion.button>
+          </div>
 
-            {/* DESKTOP NAV */}
+          <nav
+            className="
+              ml-auto
+              hidden
+              h-full
+              items-stretch
+              md:flex
+            "
+          >
+            {links.map((link, index) => {
+              const isActive = active === link.id;
 
-            <nav
-              className="
-                sm:hidden
-                items-center
-                gap-1
-                lg:flex
-                md:flex
-              "
-            >
-              {links.map((link) => (
-                <button
+              return (
+                <motion.button
                   key={link.id}
+                  type="button"
                   onClick={() => scrollToSection(link.id)}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ y: 0 }}
                   className="
+                    group
                     relative
+                    flex
+                    min-w-[104px]
                     cursor-pointer
+                    items-center
+                    justify-center
+                    gap-2
+                    border-l
+                    border-white/10
                     px-4
-                    py-2
-                    text-sm
-                    font-medium
-                    text-slate-300
-                    transition-all
+                    font-mono-tech
+                    text-[11px]
+                    uppercase
+                    tracking-[0.14em]
+                    transition-colors
                     duration-300
-                    hover:text-white
-                    hover:-translate-y-[1px]
-                    hover:scale-[1.03]
+                    last:border-r
+                    hover:text-orange-300
+                    lg:min-w-[124px]
+                    lg:px-6
                   "
                 >
-                  {active === link.id && (
-                    <>
-                      <motion.div
-                        layoutId="active-pill-glow"
-                        transition={{
-                          type: "spring",
-                          stiffness: 450,
-                          damping: 35,
-                        }}
-                        className="
-                          absolute
-                          inset-0
-                          rounded-full
-                          bg-gradient-to-r
-                          from-cyan-500
-                          via-violet-500
-                          to-pink-500
-                          opacity-30
-                          blur-md
-                        "
-                      />
-
-                      <motion.div
-                        layoutId="active-pill"
-                        transition={{
-                          type: "spring",
-                          stiffness: 450,
-                          damping: 35,
-                        }}
-                        className="
-                          absolute
-                          inset-0
-                          rounded-full
-                          bg-gradient-to-r
-                          from-cyan-500/40
-                          via-violet-500/40
-                          to-pink-500/40
-                          border
-                          border-white/20
-                          shadow-[0_0_25px_rgba(139,92,246,0.35)]
-                        "
-                      />
-                    </>
-                  )}
-
-                  {active !== link.id && (
-                    <div
-                      className="
-                        absolute
-                        inset-0
-                        rounded-full
-                        opacity-0
-                        transition-opacity
-                        duration-300
-                        hover:opacity-100
-                        bg-white/[0.04]
-                      "
-                    />
-                  )}
+                  <span
+                    className={`
+                      text-[9px]
+                      transition-colors
+                      duration-300
+                      ${
+                        isActive
+                          ? "text-orange-400"
+                          : "text-white/35 group-hover:text-orange-500"
+                      }
+                    `}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
                   <span
                     className={`
-                      relative
-                      z-10
-                      transition-all
+                      transition-colors
                       duration-300
                       ${
-                        active === link.id
-                          ? "font-semibold text-white"
-                          : "text-slate-300"
+                        isActive
+                          ? "text-white"
+                          : "text-white/65 group-hover:text-white"
                       }
                     `}
                   >
                     {link.name}
                   </span>
-                </button>
-              ))}
-            </nav>
 
-            {/* MOBILE BUTTON */}
+                  <span
+                    className="
+                      absolute
+                      bottom-0
+                      left-3
+                      right-3
+                      h-px
+                      origin-center
+                      scale-x-0
+                      bg-orange-500
+                      transition-transform
+                      duration-500
+                      ease-out
+                      group-hover:scale-x-100
+                    "
+                  />
 
-            <button
-              onClick={() => setMenuOpen(true)}
-              className="
-                cursor-pointer
-                text-white
-                lg:hidden
-              "
-            >
-              <FaBars size={22} />
-            </button>
+                  {isActive && (
+                    <motion.span
+                      layoutId="active-nav-line"
+                      transition={{
+                        type: "spring",
+                        stiffness: 360,
+                        damping: 34,
+                      }}
+                      className="
+                        absolute
+                        bottom-0
+                        left-3
+                        right-3
+                        h-px
+                        bg-orange-500
+                        shadow-[0_0_12px_rgba(231,91,22,0.65)]
+                      "
+                    />
+                  )}
+                </motion.button>
+              );
+            })}
+          </nav>
+
+          <div
+            className="
+              ml-4
+              hidden
+              items-center
+              border-l
+              border-white/15
+              pl-5
+              lg:flex
+            "
+            aria-label="Available"
+            title="Available"
+          >
+            <span className="relative flex h-2 w-2">
+              <motion.span
+                animate={{
+                  opacity: [0.15, 0, 0.15],
+                  scale: [1, 2.4, 1],
+                }}
+                transition={{
+                  duration: 2.6,
+                  repeat: Infinity,
+                  ease: "easeOut",
+                }}
+                className="
+                  absolute
+                  inset-0
+                  bg-orange-500
+                "
+              />
+              <span
+                className="
+                  relative
+                  h-2
+                  w-2
+                  bg-amber-400
+                "
+              />
+            </span>
           </div>
-        </div>
-      </header>
 
-      {/* MOBILE MENU */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open menu"
+            className="
+              ml-auto
+              flex
+              cursor-pointer
+              items-center
+              border-l
+              border-white/15
+              pl-6
+              text-white
+              transition-colors
+              duration-300
+              hover:text-orange-400
+              md:hidden
+            "
+          >
+            <FaBars size={18} />
+          </button>
+        </div>
+      </motion.header>
 
       <AnimatePresence>
         {menuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setMenuOpen(false)}
+          <motion.div
+            initial={{ clipPath: "inset(0 0 100% 0)" }}
+            animate={{ clipPath: "inset(0 0 0% 0)" }}
+            exit={{ clipPath: "inset(0 0 100% 0)" }}
+            transition={{
+              duration: 0.65,
+              ease: [0.76, 0, 0.24, 1],
+            }}
+            className="
+              fixed
+              inset-0
+              z-[60]
+              flex
+              min-h-screen
+              flex-col
+              overflow-hidden
+              bg-[#030303]
+              px-6
+              py-6
+              sm:px-10
+              sm:py-8
+            "
+          >
+            <div
               className="
-                fixed
-                inset-0
-                z-40
-                bg-black/60
-                backdrop-blur-md
-              "
-            />
-
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{
-                duration: 0.3,
-              }}
-              className="
-                fixed
-                right-0
-                top-0
-                z-50
                 flex
-                h-screen
-                w-[85%]
-                max-w-sm
-                flex-col
-                border-l
-                border-white/10
-                bg-slate-950/95
-                backdrop-blur-2xl
-                p-8
+                items-center
+                justify-between
+                border-b
+                border-white/15
+                pb-5
               "
             >
-              <button
-                onClick={() => setMenuOpen(false)}
+              <div
                 className="
-                  self-end
+                  relative
+                  font-mono-tech
+                  text-base
+                  font-semibold
+                  tracking-[0.18em]
+                  text-white
+                "
+              >
+                NS
+                <span
+                  className="
+                    absolute
+                    -right-2
+                    top-0
+                    h-1
+                    w-1
+                    bg-orange-500
+                  "
+                />
+              </div>
+
+              <motion.button
+                type="button"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                whileHover={{ rotate: 90, color: "#f97316" }}
+                whileTap={{ scale: 0.92 }}
+                className="
                   cursor-pointer
                   text-white
                 "
               >
                 <FaTimes size={24} />
-              </button>
+              </motion.button>
+            </div>
 
-              <div
-                className="
-                  mt-12
-                  flex
-                  flex-col
-                  gap-4
-                "
-              >
-                {links.map((link) => (
-                  <button
+            <nav
+              className="
+                flex
+                flex-1
+                flex-col
+                justify-center
+                py-8
+              "
+            >
+              {links.map((link, index) => {
+                const isActive = active === link.id;
+
+                return (
+                  <motion.button
                     key={link.id}
+                    type="button"
+                    initial={{ opacity: 0, y: 35 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: 0.18 + index * 0.07,
+                      duration: 0.55,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
                     onClick={() => scrollToSection(link.id)}
-                    className={`
+                    className="
+                      group
+                      flex
                       cursor-pointer
-                      rounded-2xl
-                      px-4
+                      items-baseline
+                      border-b
+                      border-white/10
                       py-3
                       text-left
-                      text-base
-                      font-medium
-                      transition-all
-                      duration-300
-                      hover:translate-x-1
-                      ${
-                        active === link.id
-                          ? "bg-gradient-to-r from-cyan-500/20 via-violet-500/20 to-pink-500/20 text-white"
-                          : "text-slate-300 hover:bg-white/5"
-                      }
-                    `}
+                      sm:py-4
+                    "
                   >
-                    {link.name}
-                  </button>
-                ))}
-              </div>
-            </motion.div>
-          </>
+                    <span
+                      className={`
+                        mr-5
+                        font-mono-tech
+                        text-[10px]
+                        tracking-[0.18em]
+                        transition-colors
+                        duration-300
+                        ${
+                          isActive
+                            ? "text-orange-400"
+                            : "text-white/35 group-hover:text-orange-400"
+                        }
+                      `}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <motion.span
+                      whileHover={{ x: 10 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 280,
+                        damping: 24,
+                      }}
+                      className={`
+                        font-display
+                        text-[clamp(2.5rem,11vw,5.5rem)]
+                        leading-[0.95]
+                        tracking-[-0.04em]
+                        transition-colors
+                        duration-300
+                        ${
+                          isActive
+                            ? "text-white"
+                            : "text-white/55 group-hover:text-white"
+                        }
+                      `}
+                    >
+                      {link.name}
+                    </motion.span>
+
+                    <span
+                      className="
+                        ml-auto
+                        h-px
+                        w-0
+                        bg-orange-500
+                        transition-all
+                        duration-500
+                        group-hover:w-12
+                      "
+                    />
+                  </motion.button>
+                );
+              })}
+            </nav>
+
+            <div
+              className="
+                flex
+                items-center
+                justify-end
+                border-t
+                border-white/15
+                pt-5
+              "
+              aria-label="Available"
+              title="Available"
+            >
+              <span
+                className="
+                  h-2
+                  w-2
+                  bg-orange-500
+                  shadow-[0_0_12px_rgba(231,91,22,0.55)]
+                "
+              />
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

@@ -15,7 +15,7 @@ const projects = [
   {
     title: "SBCL-SN",
     image: sbcl,
-    accent: "from-cyan-500 via-violet-500 to-pink-500",
+    accent: "from-orange-700 via-orange-500 to-amber-400",
 
     metric: "97.33% F1",
 
@@ -36,7 +36,7 @@ const projects = [
   {
     title: "MentalHealthAid-Autism",
     image: mha,
-    accent: "from-violet-500 via-pink-500 to-cyan-500",
+    accent: "from-amber-500 via-orange-600 to-orange-400",
 
     metric: "Sentence-BERT",
 
@@ -57,7 +57,7 @@ const projects = [
   {
     title: "Emotion Recognition",
     image: er,
-    accent: "from-pink-500 via-cyan-500 to-violet-500",
+    accent: "from-orange-800 via-orange-500 to-amber-400",
 
     metric: "81% Accuracy",
 
@@ -78,7 +78,7 @@ const projects = [
   {
     title: "Voib",
     image: voib,
-    accent: "from-cyan-500 via-blue-500 to-violet-500",
+    accent: "from-orange-600 via-orange-800 to-amber-500",
 
     metric: "Music Streaming",
 
@@ -99,7 +99,7 @@ const projects = [
   {
     title: "FoodE",
     image: foode,
-    accent: "from-cyan-500 via-violet-500 to-pink-500",
+    accent: "from-orange-700 via-orange-500 to-amber-400",
 
     metric: "Full Stack",
 
@@ -120,7 +120,7 @@ const projects = [
   {
     title: "Face-Deduplication",
     image: fd,
-    accent: "from-violet-500 via-pink-500 to-cyan-500",
+    accent: "from-amber-500 via-orange-600 to-orange-400",
 
     metric: "EPIC 7.0",
 
@@ -144,67 +144,105 @@ const Projects = () => {
     <section
       id="projects"
       className="
-        py-32
+        relative
+        overflow-hidden
+        border-t
+        border-orange-500/20
+        bg-black/30
+        py-24
+        sm:py-28
+        lg:py-36
       "
     >
       <div
         className="
           mx-auto
+          w-full
           max-w-[1600px]
-          px-6
+          px-5
+          sm:px-8
+          lg:px-12
         "
       >
-        {/* Heading */}
-
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{
+            duration: 0.75,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            grid
+            gap-8
+            border-b
+            border-white/15
+            pb-12
+            lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.65fr)]
+            lg:items-end
+            lg:gap-20
+            lg:pb-16
+          "
         >
+          <div>
+            <div
+              className="
+                section-label
+                mb-6
+              "
+            >
+              Selected Work
+            </div>
+
           <h2
             className="
-              text-center
-              text-5xl
-              font-bold
-              bg-gradient-to-r
-              from-cyan-400
-              via-violet-400
-              to-pink-400
-              bg-clip-text
-              text-transparent
+                font-display
+                text-[clamp(3.5rem,8vw,8.5rem)]
+                font-semibold
+                leading-[0.84]
+                tracking-[-0.06em]
+                text-white
             "
           >
-            Featured Projects
+              Featured{" "}
+              <span className="text-stroke-orange">
+                Projects
+              </span>
           </h2>
+          </div>
 
           <p
             className="
-              mx-auto
-              mt-8
-              max-w-4xl
-              text-center
-              text-lg
-              leading-8
+              max-w-2xl
+              border-l
+              border-orange-500/65
+              pl-5
+              text-sm
+              leading-7
               text-slate-300
+              sm:pl-7
+              sm:text-base
+              sm:leading-8
+              lg:ml-auto
             "
           >
             Building impactful systems across
-            <span className="font-semibold text-cyan-300">
+            <span className="font-semibold text-orange-300">
               {" "}
               Machine Learning
             </span>
             ,
-            <span className="font-semibold text-violet-300">
+            <span className="font-semibold text-amber-300">
               {" "}
               Graph Learning
             </span>
             ,
-            <span className="font-semibold text-pink-300">
+            <span className="font-semibold text-orange-400">
               {" "}
               Computer Vision
             </span>
             , and
-            <span className="font-semibold text-cyan-300">
+            <span className="font-semibold text-amber-300">
               {" "}
               Software Engineering
             </span>
@@ -212,259 +250,309 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* Cards */}
-
         <div
           className="
-            mt-20
-            grid
-            gap-5
-            md:grid-cols-2
-            xl:grid-cols-3
+            border-b
+            border-white/15
           "
         >
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                delay: 0.1,
-              }}
-              whileHover={{
-                y: -10,
-              }}
-              className="
-                group
-                relative
-                overflow-hidden
-                rounded-3xl
-                border
-                border-white/10
-                bg-white/5
-                p-4
-                backdrop-blur-xl
-                transition-all
-                duration-300
-                hover:border-cyan-400/30
-                hover:shadow-[0_0_40px_rgba(34,211,238,0.15)]
-              "
-            >
-              <div
-                className={`
-                  absolute
-                  inset-0
-                  bg-gradient-to-br
-                  ${project.accent}
-                  opacity-[0.04]
-                  transition-opacity
-                  duration-300
-                  group-hover:opacity-[0.08]
-                `}
-              />
+          {projects.map((project, index) => {
+            const number = String(index + 1).padStart(2, "0");
 
-              <div className="relative z-10">
-                {/* Project Image */}
+            return (
+              <motion.article
+                key={project.title}
+                initial={{ opacity: 0, y: 34 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.06,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="
+                  group
+                  relative
+                  border-t
+                  border-white/15
+                  py-8
+                  transition-colors
+                  duration-500
+                  hover:bg-orange-500/[0.025]
+                  sm:py-10
+                  xl:grid
+                  xl:grid-cols-[64px_minmax(0,0.95fr)_minmax(360px,1fr)_160px]
+                  xl:items-start
+                  xl:gap-8
+                  xl:py-12
+                "
+              >
+                <div
+                  className="
+                    mb-5
+                    flex
+                    items-center
+                    justify-between
+                    xl:mb-0
+                    xl:block
+                  "
+                >
+                  <span
+                    className="
+                      font-mono-tech
+                      text-[10px]
+                      tracking-[0.2em]
+                      text-orange-400
+                    "
+                  >
+                    {number}
+                  </span>
+                  <span
+                    className="
+                      font-mono-tech
+                      text-[9px]
+                      uppercase
+                      tracking-[0.12em]
+                      text-amber-300/75
+                      xl:mt-5
+                      xl:block
+                      xl:[writing-mode:vertical-rl]
+                    "
+                  >
+                    {project.metric}
+                  </span>
+                </div>
 
                 <div
                   className="
-                    mb-4
-                    overflow-hidden
-                    rounded-2xl
-                    border
-                    border-white/10
-                    transition-all
-                    duration-300
-                    group-hover:border-cyan-400/30
-                    group-hover:shadow-[0_0_25px_rgba(34,211,238,0.15)]
+                    min-w-0
+                    xl:pr-6
                   "
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="
-                      h-64
-                      w-full
-                      object-cover
-                      transition-all
-                      duration-500
-                      group-hover:scale-102
-                    "
-                  />
-                </div>
-
-                {/* Metric */}
-
-                <div
-                  className={`
-                    inline-flex
-                    rounded-full
-                    bg-gradient-to-r
-                    ${project.accent}
-                    p-[1px]
-                    mb-3
-                  `}
                 >
                   <div
                     className="
-                      rounded-full
-                      bg-slate-950/80
-                      px-3
-                      py-1
+                      relative
+                      mb-7
+                      aspect-[16/10]
+                      md:aspect-[16/8]
+                      md:w-[68%]
+                      overflow-hidden
+                      border
+                      border-orange-500/25
+                      bg-[#0a0705]
+                      lg:w-[58%]
+                      xl:aspect-[16/10]
+                      xl:w-full
                     "
                   >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="
+                        h-full
+                        w-full
+                        object-cover
+                      "
+                    />
                     <span
-                      className={`
-                        bg-gradient-to-r
-                        ${project.accent}
-                        bg-clip-text
-                        text-[11px]
-                        font-semibold
-                        text-transparent
-                      `}
-                    >
-                      {project.metric}
-                    </span>
+                      className="
+                        pointer-events-none
+                        absolute
+                        inset-0
+                        bg-[linear-gradient(135deg,transparent_55%,rgba(231,91,22,0.16))]
+                      "
+                    />
+                  </div>
+
+                  <motion.h3
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 24,
+                    }}
+                    className="
+                      font-display
+                      text-[clamp(2.2rem,3.8vw,4.5rem)]
+                      font-medium
+                      leading-[0.92]
+                      tracking-[-0.05em]
+                      text-white
+                      [overflow-wrap:anywhere]
+                      transition-colors
+                      duration-300
+                      group-hover:translate-x-2
+                      group-hover:text-orange-300
+                    "
+                  >
+                    {project.title}
+                  </motion.h3>
+                </div>
+
+                <div
+                  className="
+                    min-w-0
+                    mt-6
+                    xl:mt-0
+                  "
+                >
+                  <p
+                    className="
+                      max-w-2xl
+                      text-sm
+                      leading-7
+                      text-slate-300
+                    "
+                  >
+                    {project.description}
+                  </p>
+
+                  <div
+                    className="
+                      mt-6
+                      flex
+                      flex-wrap
+                      items-center
+                      gap-y-2
+                    "
+                  >
+                    {project.technologies.map(
+                      (tech, techIndex) => (
+                        <span
+                          key={tech}
+                          className="
+                            flex
+                            items-center
+                            font-mono-tech
+                            text-[10px]
+                            uppercase
+                            tracking-[0.1em]
+                            text-white/45
+                            transition-colors
+                            duration-200
+                            hover:text-amber-300
+                          "
+                        >
+                          {techIndex > 0 && (
+                            <span
+                              className="
+                                mx-2.5
+                                h-1
+                                w-1
+                                rotate-45
+                                bg-orange-500/65
+                              "
+                            />
+                          )}
+                          {tech}
+                        </span>
+                      ),
+                    )}
                   </div>
                 </div>
 
-                {/* Title */}
-
-                <h3
-                  className="
-                    text-lg
-                    font-bold
-                    text-white
-                  "
-                >
-                  {project.title}
-                </h3>
-
-                {/* Description */}
-
-                <p
-                  className="
-                    mt-3
-                    text-sm
-                    leading-6
-                    text-slate-300
-                  "
-                >
-                  {project.description}
-                </p>
-
-                {/* Technologies */}
-
                 <div
                   className="
-                    mt-4
+                    mt-7
                     flex
                     flex-wrap
-                    gap-2
-                  "
-                >
-                  {project.technologies.map((tech) => (
-                    <div
-                      key={tech}
-                      className="
-                        rounded-full
-                        border
-                        border-white/10
-                        bg-gradient-to-r
-                        from-cyan-500/10
-                        via-violet-500/10
-                        to-pink-500/10
-                        px-2.5
-                        py-1
-                        text-[11px]
-                        text-slate-300
-                        backdrop-blur-xl
-                        transition-all
-                        duration-300
-                        hover:-translate-y-1
-                        hover:border-cyan-400/40
-                        hover:text-cyan-300
-                        hover:shadow-[0_0_12px_rgba(34,211,238,0.2)]
-                      "
-                    >
-                      {tech}
-                    </div>
-                  ))}
-                </div>
-
-                {/* Buttons */}
-
-                <div
-                  className="
-                    mt-5
-                    flex
-                    gap-2
+                    gap-5
+                    xl:mt-0
+                    xl:flex-col
+                    xl:items-end
+                    xl:gap-4
                   "
                 >
                   <a
                     href={project.github}
                     className="
+                      group/action
                       flex
                       items-center
-                      gap-1.5
-                      rounded-full
-                      border
-                      border-white/10
-                      bg-white/5
-                      px-3
-                      py-2
-                      text-xs
-                      text-slate-300
+                      gap-2
+                      border-b
+                      border-white/25
+                      pb-1.5
+                      font-mono-tech
+                      text-[10px]
+                      uppercase
+                      tracking-[0.12em]
+                      text-white/65
                       transition-all
                       duration-300
-                      hover:border-cyan-400/40
-                      hover:text-cyan-300
+                      hover:border-orange-500
+                      hover:text-orange-300
                     "
                   >
                     <FaGithub />
                     GitHub Repo
-                    <FaArrowUpRightFromSquare />
+                    <FaArrowUpRightFromSquare
+                      className="
+                        transition-transform
+                        duration-300
+                        group-hover/action:-translate-y-0.5
+                        group-hover/action:translate-x-0.5
+                      "
+                    />
                   </a>
 
-                  {/* <a
+                  <a
                     href={project.demo}
                     className="
+                      group/action
                       flex
                       items-center
-                      gap-1.5
-                      rounded-full
-                      bg-gradient-to-r
-                      from-cyan-500
-                      via-violet-500
-                      to-pink-500
-                      px-3
-                      py-2
-                      text-xs
-                      font-medium
-                      text-white
+                      gap-2
+                      border-b
+                      border-white/25
+                      pb-1.5
+                      font-mono-tech
+                      text-[10px]
+                      uppercase
+                      tracking-[0.12em]
+                      text-white/65
                       transition-all
                       duration-300
-                      hover:scale-105
+                      hover:border-orange-500
+                      hover:text-orange-300
                     "
                   >
-                    <FaArrowUpRightFromSquare />
-                    Deta
-                  </a> */}
+                    Demo
+                    <FaArrowUpRightFromSquare
+                      className="
+                        transition-transform
+                        duration-300
+                        group-hover/action:-translate-y-0.5
+                        group-hover/action:translate-x-0.5
+                      "
+                    />
+                  </a>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+
+                <span
+                  className="
+                    absolute
+                    bottom-0
+                    left-0
+                    h-px
+                    w-full
+                    origin-left
+                    scale-x-0
+                    bg-gradient-to-r
+                    from-orange-600
+                    via-amber-400
+                    to-transparent
+                    transition-transform
+                    duration-700
+                    ease-out
+                    group-hover:scale-x-100
+                  "
+                />
+              </motion.article>
+            );
+          })}
         </div>
       </div>
+
     </section>
   );
 };

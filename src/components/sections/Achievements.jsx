@@ -12,7 +12,6 @@ import {
 const achievements = [
   {
     icon: FaTrophy,
-    accent: "from-cyan-500 via-violet-500 to-pink-500",
     value: "2nd Runner-Up",
     title: "TVS Credit EPIC 7.0",
     description:
@@ -21,7 +20,6 @@ const achievements = [
 
   {
     icon: FaCode,
-    accent: "from-violet-500 via-pink-500 to-cyan-500",
     value: "2 Merged PRs",
     title: "Kornia Open Source",
     description:
@@ -30,7 +28,6 @@ const achievements = [
 
   {
     icon: FaMedal,
-    accent: "from-pink-500 via-cyan-500 to-violet-500",
     value: "Semi-Finalist",
     title: "Flipkart GRID 7.0",
     description:
@@ -39,7 +36,6 @@ const achievements = [
 
   {
     icon: FaLaptopCode,
-    accent: "from-cyan-500 via-blue-500 to-violet-500",
     value: "600+",
     title: "DSA Problems",
     description:
@@ -48,7 +44,6 @@ const achievements = [
 
   {
     icon: FaUsersCog,
-    accent: "from-violet-500 via-pink-500 to-cyan-500",
     value: "Technical Lead",
     title: "IEEE IIIT Gwalior",
     description:
@@ -57,7 +52,6 @@ const achievements = [
 
   {
     icon: FaUsers,
-    accent: "from-pink-500 via-cyan-500 to-violet-500",
     value: "Logistics Head",
     title: "Twaran'25",
     description:
@@ -65,169 +59,321 @@ const achievements = [
   },
 ];
 
+const focusAreas = [
+  "AI Research",
+  "Open Source Contributor",
+  "Machine Learning",
+  "Graph Learning",
+  "Software Engineering",
+];
+
 const Achievements = () => {
   return (
     <section
       id="achievements"
       className="
-        py-32
+        relative
+        overflow-hidden
+        border-t
+        border-orange-500/20
+        bg-black/35
+        py-24
+        sm:py-28
+        lg:py-36
       "
     >
       <div
         className="
           mx-auto
+          w-full
           max-w-[1600px]
-          px-6
+          px-5
+          sm:px-8
+          lg:px-12
         "
       >
-        {/* Heading */}
-
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{
+            duration: 0.75,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            grid
+            gap-8
+            border-b
+            border-white/15
+            pb-12
+            lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.5fr)]
+            lg:items-end
+            lg:gap-20
+            lg:pb-16
+          "
         >
-          <h2
-            className="
-              text-center
-              text-5xl
-              font-bold
-              bg-gradient-to-r
-              from-cyan-400
-              via-violet-400
-              to-pink-400
-              bg-clip-text
-              text-transparent
-            "
-          >
-            Achievements and Positions of Responsibility
-          </h2>
+          <div>
+            <div
+              className="
+                section-label
+                mb-6
+              "
+            >
+              Achievements
+            </div>
+
+            <h2
+              className="
+                max-w-6xl
+                font-display
+                text-[clamp(3rem,7vw,7.5rem)]
+                font-semibold
+                leading-[0.86]
+                tracking-[-0.06em]
+                text-white
+              "
+            >
+              Achievements and{" "}
+              <span className="text-stroke-orange">
+                Positions of Responsibility
+              </span>
+            </h2>
+          </div>
 
           <p
             className="
-              mx-auto
-              mt-8
-              max-w-4xl
-              text-center
-              text-lg
-              leading-8
+              border-l
+              border-orange-500/65
+              pl-5
+              text-sm
+              leading-7
               text-slate-300
+              sm:pl-7
+              sm:text-base
+              sm:leading-8
+              lg:ml-auto
             "
           >
             Open source, hackathons, programming, and leadership.
           </p>
         </motion.div>
+      </div>
 
-        {/* Cards */}
+      <div
+        className="
+          mt-16
+          overflow-hidden
+          border-y
+          border-orange-500/30
+          bg-[#070503]
+          py-5
+          sm:mt-20
+          sm:py-7
+        "
+      >
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            duration: 38,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="
+            flex
+            w-max
+            items-center
+            whitespace-nowrap
+            will-change-transform
+          "
+        >
+          {[0, 1].map((group) => (
+            <div
+              key={group}
+              aria-hidden={group === 1}
+              className="
+                flex
+                items-center
+              "
+            >
+              {achievements.map((achievement, index) => (
+                <div
+                  key={`${group}-${achievement.title}`}
+                  className="
+                    flex
+                    items-center
+                  "
+                >
+                  <span
+                    className="
+                      mr-4
+                      font-mono-tech
+                      text-[9px]
+                      uppercase
+                      tracking-[0.16em]
+                      text-amber-300
+                    "
+                  >
+                    {achievement.value}
+                  </span>
+                  <span
+                    className={`
+                      font-display
+                      text-[clamp(2.5rem,5.5vw,6rem)]
+                      font-medium
+                      leading-none
+                      tracking-[-0.045em]
+                      ${
+                        index % 2 === 0
+                          ? "text-orange-500"
+                          : "text-stroke-orange"
+                      }
+                    `}
+                  >
+                    {achievement.title}
+                  </span>
+                  <span
+                    className="
+                      mx-7
+                      h-2
+                      w-2
+                      rotate-45
+                      border
+                      border-orange-500
+                      sm:mx-10
+                    "
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </motion.div>
+      </div>
 
+      <div
+        className="
+          mx-auto
+          mt-16
+          w-full
+          max-w-[1600px]
+          px-5
+          sm:mt-20
+          sm:px-8
+          lg:px-12
+        "
+      >
         <div
           className="
-            mt-20
-            grid
-            gap-5
+            border-t
+            border-white/15
+            md:grid
             md:grid-cols-2
-            xl:grid-cols-3
           "
         >
           {achievements.map((achievement, index) => {
             const Icon = achievement.icon;
+            const number = String(index + 1).padStart(2, "0");
 
             return (
-              <motion.div
+              <motion.article
                 key={achievement.title}
-                initial={{
-                  opacity: 0,
-                  y: 40,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
                 transition={{
-                  delay: index * 0.1,
+                  duration: 0.65,
+                  delay: (index % 2) * 0.08,
+                  ease: [0.22, 1, 0.36, 1],
                 }}
-                whileHover={{
-                  y: -10,
-                }}
-                className="
+                whileHover={{ x: 6 }}
+                className={`
                   group
                   relative
                   overflow-hidden
-                  rounded-3xl
-                  border
-                  border-white/10
-                  bg-white/5
-                  p-6
-                  backdrop-blur-xl
-                  transition-all
-                  duration-300
-                  hover:border-cyan-400/30
-                  hover:shadow-[0_0_40px_rgba(34,211,238,0.15)]
-                "
+                  border-b
+                  border-white/15
+                  py-8
+                  sm:py-10
+                  md:px-8
+                  lg:px-10
+                  lg:py-12
+                  ${
+                    index % 2 === 0
+                      ? "md:border-r md:border-white/15"
+                      : ""
+                  }
+                `}
               >
                 <div
-                  className={`
-                    absolute
-                    inset-0
-                    bg-gradient-to-br
-                    ${achievement.accent}
-                    opacity-[0.04]
-                    transition-opacity
-                    duration-300
-                    group-hover:opacity-[0.08]
-                  `}
-                />
-
-                <div className="relative z-10">
-                  <div
-                    className={`
-                      flex
-                      h-14
-                      w-14
-                      items-center
-                      justify-center
-                      rounded-2xl
-                      bg-gradient-to-r
-                      ${achievement.accent}
-                    `}
-                  >
-                    <Icon
-                      className="text-white"
-                      size={22}
-                    />
-                  </div>
-
-                  <h3
-                    className={`
-                      mt-6
-                      bg-gradient-to-r
-                      ${achievement.accent}
-                      bg-clip-text
-                      text-3xl
-                      font-bold
-                      text-transparent
-                    `}
-                  >
-                    {achievement.value}
-                  </h3>
-
-                  <p
+                  className="
+                    flex
+                    items-center
+                    justify-between
+                  "
+                >
+                  <span
                     className="
-                      mt-3
-                      text-lg
-                      font-semibold
-                      text-white
+                      font-mono-tech
+                      text-[10px]
+                      tracking-[0.2em]
+                      text-orange-400
                     "
                   >
-                    {achievement.title}
-                  </p>
+                    {number}
+                  </span>
+
+                  <Icon
+                    size={17}
+                    className="
+                      text-white/20
+                      transition-all
+                      duration-300
+                      group-hover:scale-110
+                      group-hover:text-amber-400/75
+                    "
+                  />
+                </div>
+
+                <div
+                  className="
+                    mt-9
+                    grid
+                    gap-5
+                    lg:grid-cols-[minmax(0,1fr)_minmax(180px,0.72fr)]
+                    lg:items-end
+                  "
+                >
+                  <div>
+                    <p
+                      className="
+                        font-mono-tech
+                        text-[10px]
+                        uppercase
+                        tracking-[0.14em]
+                        text-amber-300
+                      "
+                    >
+                      {achievement.value}
+                    </p>
+                    <h3
+                      className="
+                        mt-3
+                        font-display
+                        text-[clamp(2rem,3.4vw,4rem)]
+                        font-medium
+                        leading-[0.95]
+                        tracking-[-0.045em]
+                        text-white
+                        transition-colors
+                        duration-300
+                        group-hover:text-orange-300
+                      "
+                    >
+                      {achievement.title}
+                    </h3>
+                  </div>
 
                   <p
                     className="
-                      mt-3
                       text-sm
                       leading-7
                       text-slate-300
@@ -236,55 +382,77 @@ const Achievements = () => {
                     {achievement.description}
                   </p>
                 </div>
-              </motion.div>
+
+                <span
+                  className="
+                    absolute
+                    bottom-0
+                    left-0
+                    h-px
+                    w-full
+                    origin-left
+                    scale-x-0
+                    bg-orange-500
+                    transition-transform
+                    duration-700
+                    group-hover:scale-x-100
+                  "
+                />
+              </motion.article>
             );
           })}
         </div>
 
-        {/* Extra Stats */}
-
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
           className="
-            mt-16
             flex
             flex-wrap
-            justify-center
-            gap-3
+            border-b
+            border-white/15
           "
         >
-          {[
-            "AI Research",
-            "Open Source Contributor",
-            "Machine Learning",
-            "Graph Learning",
-            "Software Engineering",
-          ].map((item) => (
-            <div
+          <div
+            className="
+              flex
+              min-h-14
+              items-center
+              border-r
+              border-white/15
+              pr-5
+              text-orange-400
+            "
+          >
+            <FaAward size={15} />
+          </div>
+
+          {focusAreas.map((item) => (
+            <span
               key={item}
               className="
-                rounded-full
-                border
-                border-white/10
-                bg-gradient-to-r
-                from-cyan-500/10
-                via-violet-500/10
-                to-pink-500/10
+                flex
+                min-h-14
+                items-center
+                border-r
+                border-white/15
                 px-4
-                py-2
-                text-sm
-                text-slate-300
-                backdrop-blur-xl
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                hover:border-cyan-400/40
-                hover:text-cyan-300
+                font-mono-tech
+                text-[9px]
+                uppercase
+                tracking-[0.12em]
+                text-white/45
+                transition-colors
+                duration-200
+                hover:text-amber-300
+                sm:px-5
               "
             >
               {item}
-            </div>
+            </span>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

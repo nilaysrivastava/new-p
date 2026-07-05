@@ -40,7 +40,7 @@ const Background = () => {
           fixed
           inset-0
           -z-50
-          bg-[#060816]
+          bg-[#030303]
         "
       />
 
@@ -64,7 +64,7 @@ const Background = () => {
           h-[450px]
           w-[450px]
           rounded-full
-          bg-cyan-500/18
+          bg-[#b94712]/14
           blur-[140px]
         "
       />
@@ -89,7 +89,7 @@ const Background = () => {
           h-[500px]
           w-[500px]
           rounded-full
-          bg-violet-500/18
+          bg-[#d88418]/11
           blur-[150px]
         "
       />
@@ -115,7 +115,7 @@ const Background = () => {
           -translate-x-1/2
           -translate-y-1/2
           rounded-full
-          bg-pink-500/15
+          bg-[#8f2f16]/10
           blur-[130px]
         "
       />
@@ -134,7 +134,7 @@ const Background = () => {
           h-[400px]
           w-[400px]
           rounded-full
-          bg-cyan-400/15
+          bg-[#d66a16]/10
           blur-[120px]
         "
       />
@@ -147,12 +147,12 @@ const Background = () => {
           fixed
           inset-0
           -z-20
-          opacity-[0.03]
+          opacity-[0.025]
         "
         style={{
           backgroundImage: `
-            linear-gradient(to right, white 1px, transparent 1px),
-            linear-gradient(to bottom, white 1px, transparent 1px)
+            linear-gradient(to right, rgba(216, 132, 24, 0.5) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(216, 132, 24, 0.5) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}

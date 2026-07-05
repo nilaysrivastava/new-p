@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
 import Lenis from "lenis";
 
 import Background from "./components/layout/Background";
-import Navbar from "./components/layout/Navbar";
 
 import CursorFollower from "./components/ui/CursorFollower";
 import ScrollProgress from "./components/ui/ScrollProgress";
@@ -11,6 +9,7 @@ import Stardust from "./components/ui/Stardust";
 import Preloader from "./components/ui/Preloader";
 
 import Hero from "./components/sections/Hero";
+import ScrollStatement from "./components/sections/ScrollStatement";
 // import About from "./components/sections/About";
 import Experience from "./components/sections/Experience";
 import Projects from "./components/sections/Projects";
@@ -59,10 +58,10 @@ useEffect(() => {
           <Stardust />
           <ScrollProgress />
           <CursorFollower />
-          <Navbar />
 
           <main>
             <Hero />
+            <ScrollStatement />
             {/* <About /> */}
             <Skills />
             <Experience />

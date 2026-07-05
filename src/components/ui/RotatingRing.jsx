@@ -16,9 +16,9 @@ const RotatingRing = () => {
         inset-[-10px]
         rounded-full
         bg-gradient-to-r
-        from-cyan-400
-        via-violet-500
-        to-pink-500
+        from-orange-500
+        via-amber-400
+        to-orange-700
       "
     />
   );

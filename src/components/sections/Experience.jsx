@@ -8,13 +8,11 @@ const experiences = [
     duration: "May 2026 – July 2026",
     location: "Chennai, India",
 
-    accent: "from-cyan-500 via-violet-500 to-pink-500",
-
     metrics: [
       "25K+ Documents/Day",
-"40% Faster Pipelines",
-"+12% AUC-ROC",
-"30% Less Manual Effort"
+      "40% Faster Pipelines",
+      "+12% AUC-ROC",
+      "30% Less Manual Effort",
     ],
 
     description:
@@ -35,7 +33,7 @@ const experiences = [
       "Production ML Systems",
       "LangChain",
       "LangGraph",
-      "Azure"
+      "Azure",
     ],
   },
 
@@ -45,13 +43,11 @@ const experiences = [
     duration: "July 2024 – Oct 2024",
     location: "Remote",
 
-    accent: "from-violet-500 via-pink-500 to-cyan-500",
-
     metrics: [
       "35% Faster APIs",
-"1000+ Requests/Day",
-"99.9% Uptime",
-"Cloud-Native Deployment"
+      "1000+ Requests/Day",
+      "99.9% Uptime",
+      "Cloud-Native Deployment",
     ],
 
     description:
@@ -79,33 +75,54 @@ const Experience = () => {
     <section
       id="experience"
       className="
-        py-32
+        relative
+        overflow-hidden
+        border-t
+        border-orange-500/20
+        bg-black/35
+        py-24
+        sm:py-28
+        lg:py-36
       "
     >
       <div
         className="
           mx-auto
-          max-w-[1400px]
-          px-6
+          w-full
+          max-w-[1600px]
+          px-5
+          sm:px-8
+          lg:px-12
         "
       >
-        {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{
+            duration: 0.75,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            grid
+            gap-8
+            border-b
+            border-white/15
+            pb-12
+            lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.55fr)]
+            lg:items-end
+            lg:gap-20
+            lg:pb-16
+          "
         >
           <h2
             className="
-              text-center
-              text-5xl
-              font-bold
-              bg-gradient-to-r
-              from-cyan-400
-              via-violet-400
-              to-pink-400
-              bg-clip-text
-              text-transparent
+              font-display
+              text-[clamp(3.8rem,9vw,9rem)]
+              font-semibold
+              leading-[0.82]
+              tracking-[-0.065em]
+              text-stroke-orange
             "
           >
             Experience
@@ -113,156 +130,195 @@ const Experience = () => {
 
           <p
             className="
-              mx-auto
-              mt-8
-              max-w-3xl
-              text-center
-              text-lg
-              leading-8
+              border-l
+              border-orange-500/65
+              pl-5
+              text-sm
+              leading-7
               text-slate-300
+              sm:pl-7
+              sm:text-base
+              sm:leading-8
+              lg:ml-auto
             "
           >
             Internship experience across Software Engineering, GenAI, Machine Learning, and Cloud-Based Systems.
           </p>
         </motion.div>
 
-        {/* Experience Cards */}
         <div
           className="
-            mt-20
-            grid
-            gap-8
-            xl:grid-cols-2
+            border-b
+            border-white/15
           "
         >
           {experiences.map((exp, index) => (
-            <motion.div
+            <motion.article
               key={exp.company}
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{
-                delay: index * 0.1,
+                duration: 0.7,
+                delay: index * 0.08,
+                ease: [0.22, 1, 0.36, 1],
               }}
-              whileHover={{
-                y: -8,
-                scale: 1.01,
-              }}
+              whileHover={{ x: 5 }}
               className="
+                group
                 relative
                 overflow-hidden
-                rounded-3xl
-                border
-                border-white/10
-                bg-white/5
-                p-6
-                backdrop-blur-xl
-                transition-all
-                duration-300
-                hover:border-cyan-400/30
-                hover:shadow-[0_0_40px_rgba(34,211,238,0.12)]
+                border-t
+                border-white/15
+                py-9
+                sm:py-11
+                lg:grid
+                lg:grid-cols-[64px_minmax(240px,0.58fr)_minmax(0,1fr)]
+                lg:items-start
+                lg:gap-8
+                lg:py-14
               "
             >
-              {/* Gradient Background */}
               <div
-                className={`
-                  absolute
-                  inset-0
-                  bg-gradient-to-br
-                  ${exp.accent}
-                  opacity-[0.05]
-                `}
-              />
-
-              <div className="relative z-10">
-                {/* Header */}
-                <div
+                className="
+                  mb-6
+                  flex
+                  items-center
+                  justify-end
+                  lg:mb-0
+                  lg:block
+                "
+              >
+                <FaBriefcase
+                  size={14}
                   className="
-                    flex
-                    flex-col
-                    gap-4
-                    lg:flex-row
-                    lg:items-start
-                    lg:justify-between
+                    text-white/25
+                    transition-colors
+                    duration-300
+                    group-hover:text-amber-400
+                    lg:mt-6
+                  "
+                />
+              </div>
+
+              <div
+                className="
+                  min-w-0
+                  lg:pr-6
+                "
+              >
+                <h3
+                  className="
+                    font-display
+                    text-[clamp(2.2rem,4vw,4.8rem)]
+                    font-medium
+                    leading-[0.94]
+                    tracking-[-0.045em]
+                    text-white
+                    transition-colors
+                    duration-300
+                    group-hover:text-orange-300
                   "
                 >
-                  <div>
-                    <div className="flex items-center gap-3">
-                      <FaBriefcase className="text-cyan-300" />
+                  {exp.role}
+                </h3>
 
-                      <h3
-                        className="
-                          text-xl
-                          font-bold
-                          text-white
-                          lg:text-2xl
-                        "
-                      >
-                        {exp.role}
-                      </h3>
-                    </div>
+                <p
+                  className="
+                    mt-4
+                    font-mono-tech
+                    text-xs
+                    uppercase
+                    tracking-[0.12em]
+                    text-amber-300
+                  "
+                >
+                  {exp.company}
+                </p>
 
-                    <p
-                      className={`
-                        mt-2
-                        text-lg
-                        font-semibold
-                        bg-gradient-to-r
-                        ${exp.accent}
-                        bg-clip-text
-                        text-transparent
-                      `}
-                    >
-                      {exp.company}
-                    </p>
-                  </div>
-
-                  <div
-                    className="
-                      text-sm
-                      text-slate-400
-                    "
-                  >
-                    <div>{exp.duration}</div>
-                    <div>{exp.location}</div>
-                  </div>
-                </div>
-
-                {/* Metrics */}
                 <div
                   className="
-                    mt-6
+                    mt-7
+                    border-t
+                    border-white/15
+                    font-mono-tech
+                    text-[10px]
+                    uppercase
+                    tracking-[0.08em]
+                    text-slate-400
+                  "
+                >
+                  <div
+                    className="
+                      border-b
+                      border-white/15
+                      py-3
+                    "
+                  >
+                    {exp.duration}
+                  </div>
+                  <div
+                    className="
+                      border-b
+                      border-white/15
+                      py-3
+                    "
+                  >
+                    {exp.location}
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="
+                  min-w-0
+                  mt-8
+                  lg:mt-0
+                "
+              >
+                <p
+                  className="
+                    max-w-3xl
+                    text-sm
+                    leading-7
+                    text-slate-300
+                    sm:text-base
+                    sm:leading-8
+                  "
+                >
+                  {exp.description}
+                </p>
+
+                <div
+                  className="
+                    mt-8
                     grid
                     grid-cols-2
-                    gap-3
+                    border-t
+                    border-white/15
+                    sm:grid-cols-4
                   "
                 >
                   {exp.metrics.map((metric) => (
                     <div
                       key={metric}
                       className="
-                        rounded-xl
-                        border
-                        border-white/10
-                        bg-white/5
-                        px-3
-                        py-3
-                        text-center
-                        text-xs
-                        font-medium
-                        text-slate-200
-                        transition-all
-                        duration-300
-                        hover:border-cyan-400/30
-                        hover:bg-white/10
+                        border-b
+                        border-white/15
+                        py-4
+                        pr-3
+                        font-mono-tech
+                        text-[10px]
+                        uppercase
+                        tracking-[0.08em]
+                        text-white/55
+                        transition-colors
+                        duration-200
+                        hover:text-amber-300
+                        sm:border-r
+                        sm:px-3
+                        sm:first:pl-0
+                        sm:last:border-r-0
                       "
                     >
                       {metric}
@@ -270,56 +326,64 @@ const Experience = () => {
                   ))}
                 </div>
 
-                {/* Description */}
-                <p
-                  className="
-                    mt-6
-                    leading-8
-                    text-slate-300
-                  "
-                >
-                  {exp.description}
-                </p>
-
-                {/* Technologies */}
                 <div
                   className="
-                    mt-6
+                    mt-7
                     flex
                     flex-wrap
-                    gap-2
+                    items-center
+                    gap-y-2
                   "
                 >
-                  {exp.technologies.map((tech) => (
-                    <div
+                  {exp.technologies.map((tech, techIndex) => (
+                    <span
                       key={tech}
                       className="
-                        rounded-full
-                        border
-                        border-white/10
-                        bg-gradient-to-r
-                        from-cyan-500/10
-                        via-violet-500/10
-                        to-pink-500/10
-                        px-3
-                        py-1.5
-                        text-xs
-                        text-slate-300
-                        backdrop-blur-xl
-                        transition-all
-                        duration-300
-                        hover:-translate-y-1
-                        hover:border-cyan-400/40
-                        hover:text-cyan-300
-                        hover:shadow-[0_0_12px_rgba(34,211,238,0.2)]
+                        flex
+                        items-center
+                        font-mono-tech
+                        text-[10px]
+                        uppercase
+                        tracking-[0.08em]
+                        text-white/45
+                        transition-colors
+                        duration-200
+                        hover:text-orange-300
                       "
                     >
+                      {techIndex > 0 && (
+                        <span
+                          className="
+                            mx-2.5
+                            h-1
+                            w-1
+                            rotate-45
+                            bg-orange-500
+                          "
+                        />
+                      )}
                       {tech}
-                    </div>
+                    </span>
                   ))}
                 </div>
               </div>
-            </motion.div>
+
+              <span
+                className="
+                  absolute
+                  bottom-0
+                  left-0
+                  h-px
+                  w-full
+                  origin-left
+                  scale-x-0
+                  bg-orange-500
+                  transition-transform
+                  duration-700
+                  group-hover:scale-x-100
+                "
+              />
+            </motion.article>
           ))}
         </div>
       </div>

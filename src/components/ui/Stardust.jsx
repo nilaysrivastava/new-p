@@ -1,4 +1,9 @@
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { useEffect } from "react";
 
 const particles = Array.from({ length: 50 }).map((_, i) => ({
@@ -13,6 +18,59 @@ const particles = Array.from({ length: 50 }).map((_, i) => ({
 
   depth: Math.random() * 3 + 1,
 }));
+
+const StardustParticle = ({
+  particle,
+  smoothX,
+  smoothY,
+}) => {
+  const parallaxX = useTransform(
+    smoothX,
+    (value) => value / particle.depth,
+  );
+  const parallaxY = useTransform(
+    smoothY,
+    (value) => value / particle.depth,
+  );
+
+  return (
+    <motion.div
+      style={{
+        left: `${particle.x}%`,
+        top: `${particle.y}%`,
+        x: parallaxX,
+        y: parallaxY,
+      }}
+      className="
+        absolute
+      "
+    >
+      <motion.div
+        animate={{
+          y: [0, -20, 0],
+          opacity: [
+            particle.opacity,
+            particle.opacity + 0.1,
+            particle.opacity,
+          ],
+        }}
+        transition={{
+          duration: 6 + particle.id,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        style={{
+          width: `${particle.size}px`,
+          height: `${particle.size}px`,
+        }}
+        className="
+          rounded-full
+          bg-white
+        "
+      />
+    </motion.div>
+  );
+};
 
 const Stardust = () => {
   const mouseX = useMotionValue(0);
@@ -52,57 +110,12 @@ const Stardust = () => {
       "
     >
       {particles.map((particle) => (
-        <motion.div
+        <StardustParticle
           key={particle.id}
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-
-            x:
-              useSpring(mouseX, {
-                stiffness: 25,
-                damping: 30,
-              }).get() / particle.depth,
-
-            y:
-              useSpring(mouseY, {
-                stiffness: 25,
-                damping: 30,
-              }).get() / particle.depth,
-          }}
-          animate={{
-            y: [0, -20, 0],
-            opacity: [
-              particle.opacity,
-              particle.opacity + 0.1,
-              particle.opacity,
-            ],
-          }}
-          transition={{
-            duration: 6 + particle.id,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="
-            absolute
-            rounded-full
-            bg-white
-          "
-          width={particle.size}
-          height={particle.size}
-        >
-          <div
-            style={{
-              width: `${particle.size}px`,
-              height: `${particle.size}px`,
-              opacity: particle.opacity,
-            }}
-            className="
-              rounded-full
-              bg-white
-            "
-          />
-        </motion.div>
+          particle={particle}
+          smoothX={smoothX}
+          smoothY={smoothY}
+        />
       ))}
     </div>
   );

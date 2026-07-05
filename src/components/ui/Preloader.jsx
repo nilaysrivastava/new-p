@@ -38,7 +38,7 @@ const Preloader = () => {
         items-center
         justify-center
 
-        bg-[#060816]
+        bg-black
       "
     >
       {/* Logo */}
@@ -50,9 +50,9 @@ const Preloader = () => {
           font-bold
 
           bg-gradient-to-r
-          from-cyan-400
-          via-violet-400
-          to-pink-400
+          from-orange-500
+          via-amber-400
+          to-orange-700
 
           bg-clip-text
           text-transparent
@@ -110,11 +110,11 @@ const Preloader = () => {
               h-full
 
               bg-gradient-to-r
-              from-cyan-400
-              via-violet-400
-              to-pink-400
+              from-orange-500
+              via-amber-400
+              to-orange-700
 
-              shadow-[0_0_20px_rgba(139,92,246,0.5)]
+              shadow-[0_0_20px_rgba(231,91,22,0.5)]
             "
           />
         </div>

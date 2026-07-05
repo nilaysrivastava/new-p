@@ -5,53 +5,105 @@ import {
   FaArrowUpRightFromSquare,
 } from "react-icons/fa6";
 
+const impact = [
+  "2 PRs Merged",
+  "Computer Vision",
+  "PyTorch Ecosystem",
+];
+
+const technologies = [
+  "PyTorch",
+  "Computer Vision",
+  "Open Source",
+  "Python",
+  "GitHub",
+];
+
 const OpenSource = () => {
   return (
     <section
       id="opensource"
       className="
-        py-32
+        relative
+        overflow-hidden
+        border-t
+        border-orange-500/20
+        bg-black/35
+        py-24
+        sm:py-28
+        lg:py-36
       "
     >
       <div
         className="
           mx-auto
-          max-w-[1400px]
-          px-6
+          w-full
+          max-w-[1600px]
+          px-5
+          sm:px-8
+          lg:px-12
         "
       >
-        {/* Heading */}
-
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{
+            duration: 0.75,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            grid
+            gap-8
+            border-b
+            border-white/15
+            pb-12
+            lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.65fr)]
+            lg:items-end
+            lg:gap-20
+            lg:pb-16
+          "
         >
-          <h2
-            className="
-              text-center
-              text-5xl
-              font-bold
-              bg-gradient-to-r
-              from-cyan-400
-              via-violet-400
-              to-pink-400
-              bg-clip-text
-              text-transparent
-            "
-          >
-            Open Source
-          </h2>
+          <div>
+            <div
+              className="
+                section-label
+                mb-6
+              "
+            >
+              Open Source
+            </div>
+
+            <h2
+              className="
+                font-display
+                text-[clamp(3.8rem,9vw,9rem)]
+                font-semibold
+                leading-[0.82]
+                tracking-[-0.065em]
+                text-white
+              "
+            >
+              Open{" "}
+              <span className="text-stroke-orange">
+                Source
+              </span>
+            </h2>
+          </div>
 
           <p
             className="
-              mx-auto
-              mt-8
-              max-w-3xl
-              text-center
-              text-lg
-              leading-8
+              max-w-2xl
+              border-l
+              border-orange-500/65
+              pl-5
+              text-sm
+              leading-7
               text-slate-300
+              sm:pl-7
+              sm:text-base
+              sm:leading-8
+              lg:ml-auto
             "
           >
             Contributing to production-grade open source
@@ -60,304 +112,491 @@ const OpenSource = () => {
           </p>
         </motion.div>
 
-        {/* Card */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          whileHover={{
-            y: -8,
+        <motion.article
+          initial={{ opacity: 0, y: 34 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
           }}
           className="
-            group
-            relative
-            mx-auto
-            mt-20
-            max-w-5xl
-            overflow-hidden
-            rounded-3xl
-            border
-            border-white/10
-            bg-white/5
-            p-8
-            backdrop-blur-xl
-            transition-all
-            duration-300
-            hover:border-cyan-400/30
-            hover:shadow-[0_0_50px_rgba(34,211,238,0.15)]
+            border-b
+            border-white/15
           "
         >
           <div
             className="
-              absolute
-              inset-0
-              bg-gradient-to-br
-              from-cyan-500/5
-              via-violet-500/5
-              to-pink-500/5
+              grid
+              border-b
+              border-white/15
+              lg:grid-cols-[minmax(0,1fr)_220px_220px]
             "
-          />
-
-          <div className="relative z-10">
-            {/* Header */}
-
+          >
             <div
               className="
                 flex
-                flex-col
-                gap-4
-                md:flex-row
-                md:items-center
-                md:justify-between
+                items-center
+                gap-5
+                py-9
+                sm:py-12
+                lg:pr-10
               "
             >
+              <div
+                className="
+                  flex
+                  h-12
+                  w-12
+                  shrink-0
+                  items-center
+                  justify-center
+                  border
+                  border-orange-500/55
+                  text-orange-400
+                "
+              >
+                <FaCodeBranch size={17} />
+              </div>
+
               <div>
                 <h3
                   className="
-                    text-3xl
-                    font-bold
+                    font-display
+                    text-[clamp(3rem,7vw,7rem)]
+                    font-medium
+                    leading-none
+                    tracking-[-0.055em]
                     text-white
                   "
                 >
                   Kornia
                 </h3>
-
                 <p
                   className="
-                    mt-2
-                    text-cyan-300
+                    mt-3
+                    font-mono-tech
+                    text-[10px]
+                    uppercase
+                    tracking-[0.16em]
+                    text-orange-300
                   "
                 >
                   Open Source Contributor
                 </p>
               </div>
+            </div>
 
+            <div
+              className="
+                flex
+                items-center
+                justify-between
+                border-t
+                border-white/15
+                py-6
+                lg:block
+                lg:border-l
+                lg:border-t-0
+                lg:px-8
+                lg:py-12
+              "
+            >
+              <span
+                className="
+                  font-mono-tech
+                  text-[9px]
+                  uppercase
+                  tracking-[0.16em]
+                  text-white/35
+                "
+              >
+                01
+              </span>
+              <span
+                className="
+                  font-display
+                  text-2xl
+                  text-amber-300
+                  lg:mt-8
+                  lg:block
+                  lg:text-3xl
+                "
+              >
+                10K+ Stars
+              </span>
+            </div>
+
+            <div
+              className="
+                flex
+                items-center
+                justify-between
+                border-t
+                border-white/15
+                py-6
+                lg:block
+                lg:border-l
+                lg:border-t-0
+                lg:px-8
+                lg:py-12
+              "
+            >
+              <span
+                className="
+                  font-mono-tech
+                  text-[9px]
+                  uppercase
+                  tracking-[0.16em]
+                  text-white/35
+                "
+              >
+                02
+              </span>
+              <span
+                className="
+                  font-display
+                  text-2xl
+                  text-orange-300
+                  lg:mt-8
+                  lg:block
+                  lg:text-3xl
+                "
+              >
+                2 Merged PRs
+              </span>
+            </div>
+          </div>
+
+          <div
+            className="
+              grid
+              border-b
+              border-white/15
+              lg:grid-cols-[minmax(0,0.68fr)_minmax(360px,1fr)]
+            "
+          >
+            <div
+              className="
+                py-9
+                sm:py-12
+                lg:border-r
+                lg:border-white/15
+                lg:pr-12
+              "
+            >
               <div
                 className="
                   flex
+                  items-center
                   gap-3
+                  font-mono-tech
+                  text-[9px]
+                  uppercase
+                  tracking-[0.17em]
+                  text-orange-400
                 "
               >
-                <div
-                  className="
-                    rounded-full
-                    border
-                    border-white/10
-                    bg-white/5
-                    px-4
-                    py-2
-                    text-sm
-                    text-slate-300
-                  "
-                >
-                  10K+ Stars
-                </div>
-
-                <div
-                  className="
-                    rounded-full
-                    border
-                    border-white/10
-                    bg-white/5
-                    px-4
-                    py-2
-                    text-sm
-                    text-slate-300
-                  "
-                >
-                  2 Merged PRs
-                </div>
+                <FaGithub size={13} />
+                Kornia
               </div>
-            </div>
 
-            {/* Description */}
-
-            <p
-              className="
-                mt-8
-                max-w-3xl
-                leading-8
-                text-slate-300
-              "
-            >
-              Contributed to Kornia, one of the leading
-              open-source computer vision libraries built on
-              top of PyTorch. Added support for RandomAffine
-              padding mode handling and fixed a PyTorch
-              broadcasting issue affecting multi-channel
-              affine transformations.
-            </p>
-
-            {/* Metrics */}
-
-            <div
-              className="
-                mt-8
-                grid
-                gap-4
-                md:grid-cols-3
-              "
-            >
-              {[
-                "2 PRs Merged",
-                "Computer Vision",
-                "PyTorch Ecosystem",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="
-                    rounded-2xl
-                    border
-                    border-white/10
-                    bg-white/5
-                    p-4
-                    text-center
-                    text-sm
-                    text-slate-300
-                  "
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-
-            {/* Tech Pills */}
-
-            <div
-              className="
-                mt-8
-                flex
-                flex-wrap
-                gap-2
-              "
-            >
-              {[
-                "PyTorch",
-                "Computer Vision",
-                "Open Source",
-                "Python",
-                "GitHub",
-              ].map((tech) => (
-                <div
-                  key={tech}
-                  className="
-                    rounded-full
-                    border
-                    border-white/10
-                    bg-gradient-to-r
-                    from-cyan-500/10
-                    via-violet-500/10
-                    to-pink-500/10
-                    px-3
-                    py-1.5
-                    text-xs
-                    text-slate-300
-                    transition-all
-                    duration-300
-                    hover:-translate-y-1
-                    hover:border-cyan-400/40
-                    hover:text-cyan-300
-                  "
-                >
-                  {tech}
-                </div>
-              ))}
-            </div>
-
-            {/* Buttons */}
-
-            <div
-              className="
-                mt-8
-                flex
-                flex-wrap
-                gap-3
-              "
-            >
               <a
                 href="https://github.com/kornia/kornia"
                 className="
-                  flex
+                  group
+                  mt-8
+                  inline-flex
                   items-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-white/10
-                  bg-white/5
-                  px-5
-                  py-2.5
-                  text-sm
-                  text-slate-300
-                  transition-all
+                  gap-3
+                  border-b
+                  border-white/25
+                  pb-2
+                  font-mono-tech
+                  text-xs
+                  uppercase
+                  tracking-[0.13em]
+                  text-white/65
+                  transition-colors
                   duration-300
-                  hover:border-cyan-400/40
-                  hover:text-cyan-300
+                  hover:border-orange-500
+                  hover:text-orange-300
                 "
               >
                 <FaGithub />
                 Kornia Repo
+                <FaArrowUpRightFromSquare
+                  className="
+                    transition-transform
+                    duration-300
+                    group-hover:-translate-y-0.5
+                    group-hover:translate-x-0.5
+                  "
+                />
               </a>
+            </div>
 
-              <a
-                href="https://github.com/kornia/kornia/pull/3388"
+            <div
+              className="
+                relative
+                overflow-hidden
+                border-t
+                border-white/15
+                bg-[#070503]
+                px-5
+                py-9
+                sm:px-8
+                sm:py-12
+                lg:border-t-0
+                lg:px-12
+              "
+            >
+              <div
                 className="
+                  mb-7
                   flex
                   items-center
                   gap-2
-                  rounded-full
-                  bg-gradient-to-r
-                  from-cyan-500
-                  via-violet-500
-                  to-pink-500
-                  px-5
-                  py-2.5
-                  text-sm
-                  font-medium
-                  text-white
-                  transition-all
+                "
+                aria-hidden="true"
+              >
+                <span className="h-1.5 w-1.5 bg-orange-600" />
+                <span className="h-1.5 w-1.5 bg-amber-500/65" />
+                <span className="h-1.5 w-1.5 bg-white/20" />
+              </div>
+
+              <div
+                className="
+                  flex
+                  items-start
+                  gap-4
+                "
+              >
+                <span
+                  className="
+                    pt-1
+                    font-mono-tech
+                    text-sm
+                    text-orange-500
+                  "
+                  aria-hidden="true"
+                >
+                  $
+                </span>
+                <p
+                  className="
+                    max-w-3xl
+                    font-mono-tech
+                    text-sm
+                    leading-7
+                    text-slate-300
+                    sm:text-base
+                    sm:leading-8
+                  "
+                >
+                  Contributed to Kornia, one of the leading
+                  open-source computer vision libraries built on
+                  top of PyTorch. Added support for RandomAffine
+                  padding mode handling and fixed a PyTorch
+                  broadcasting issue affecting multi-channel
+                  affine transformations.
+                </p>
+              </div>
+
+              <motion.span
+                animate={{ x: ["-120%", "650%"] }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="
+                  pointer-events-none
+                  absolute
+                  bottom-0
+                  h-px
+                  w-24
+                  bg-orange-500
+                "
+              />
+            </div>
+          </div>
+
+          <div
+            className="
+              grid
+              border-b
+              border-white/15
+              md:grid-cols-3
+            "
+          >
+            {impact.map((item, index) => (
+              <motion.div
+                key={item}
+                whileHover={{ x: 5 }}
+                className="
+                  group
+                  flex
+                  items-center
+                  justify-between
+                  border-b
+                  border-white/15
+                  py-6
+                  transition-colors
                   duration-300
-                  hover:scale-105
+                  hover:text-orange-300
+                  md:border-b-0
+                  md:border-r
+                  md:px-7
+                  md:last:border-r-0
+                "
+              >
+                <span
+                  className="
+                    font-mono-tech
+                    text-[9px]
+                    tracking-[0.16em]
+                    text-orange-400
+                  "
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span
+                  className="
+                    font-mono-tech
+                    text-[11px]
+                    uppercase
+                    tracking-[0.1em]
+                    text-white/60
+                    transition-colors
+                    duration-300
+                    group-hover:text-orange-300
+                  "
+                >
+                  {item}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+
+          <div
+            className="
+              grid
+              gap-8
+              py-9
+              sm:py-12
+              lg:grid-cols-[minmax(0,1fr)_auto]
+              lg:items-center
+            "
+          >
+            <div
+              className="
+                flex
+                flex-wrap
+                items-center
+                gap-y-3
+              "
+            >
+              {technologies.map((tech, index) => (
+                <span
+                  key={tech}
+                  className="
+                    flex
+                    items-center
+                    font-mono-tech
+                    text-[10px]
+                    uppercase
+                    tracking-[0.11em]
+                    text-white/50
+                    transition-colors
+                    duration-200
+                    hover:text-amber-300
+                  "
+                >
+                  {index > 0 && (
+                    <span
+                      className="
+                        mx-3
+                        h-1
+                        w-1
+                        rotate-45
+                        bg-orange-500
+                      "
+                    />
+                  )}
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div
+              className="
+                flex
+                flex-wrap
+                gap-3
+                lg:justify-end
+              "
+            >
+              <motion.a
+                href="https://github.com/kornia/kornia/pull/3388"
+                whileHover={{ y: -3 }}
+                whileTap={{ y: 0 }}
+                className="
+                  flex
+                  min-h-11
+                  items-center
+                  gap-2
+                  border
+                  border-orange-500
+                  bg-orange-600
+                  px-5
+                  font-mono-tech
+                  text-[10px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.12em]
+                  text-black
+                  transition-colors
+                  duration-300
+                  hover:bg-transparent
+                  hover:text-orange-300
                 "
               >
                 <FaArrowUpRightFromSquare />
                 Pull #3388
-              </a>
-              <a
+              </motion.a>
+
+              <motion.a
                 href="https://github.com/kornia/kornia/pull/3391"
+                whileHover={{ y: -3 }}
+                whileTap={{ y: 0 }}
                 className="
                   flex
+                  min-h-11
                   items-center
                   gap-2
-                  rounded-full
-                  bg-gradient-to-r
-                  from-cyan-500
-                  via-violet-500
-                  to-pink-500
+                  border
+                  border-orange-500
+                  bg-orange-600
                   px-5
-                  py-2.5
-                  text-sm
-                  font-medium
-                  text-white
-                  transition-all
+                  font-mono-tech
+                  text-[10px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.12em]
+                  text-black
+                  transition-colors
                   duration-300
-                  hover:scale-105
+                  hover:bg-transparent
+                  hover:text-orange-300
                 "
               >
                 <FaArrowUpRightFromSquare />
                 Pull #3391
-              </a>
+              </motion.a>
             </div>
           </div>
-        </motion.div>
+        </motion.article>
       </div>
     </section>
   );

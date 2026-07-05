@@ -8,68 +8,131 @@ const Footer = () => {
   };
 
   return (
-    <footer className="py-8">
+    <footer
+      className="
+        border-t
+        border-orange-500/25
+        bg-[#030303]
+      "
+    >
+      <button
+        type="button"
+        onClick={() => scrollToSection("home")}
+        className="
+          group
+          relative
+          flex
+          w-full
+          cursor-pointer
+          items-center
+          justify-between
+          overflow-hidden
+          border-b
+          border-white/15
+          px-5
+          py-10
+          text-left
+          sm:px-8
+          sm:py-14
+          lg:px-12
+          lg:py-16
+        "
+      >
+        <span
+          className="
+            absolute
+            inset-0
+            origin-bottom
+            scale-y-0
+            bg-orange-600
+            transition-transform
+            duration-700
+            ease-out
+            group-hover:scale-y-100
+          "
+        />
+
+        <span
+          className="
+            relative
+            z-10
+            font-display
+            text-[clamp(3.5rem,10vw,10rem)]
+            font-medium
+            leading-none
+            tracking-[-0.06em]
+            text-white
+            transition-colors
+            duration-500
+            group-hover:text-black
+          "
+        >
+          Back to top
+        </span>
+
+        <span
+          className="
+            relative
+            z-10
+            flex
+            h-14
+            w-14
+            shrink-0
+            items-center
+            justify-center
+            border
+            border-orange-500
+            text-orange-400
+            transition-all
+            duration-500
+            group-hover:-translate-y-2
+            group-hover:border-black
+            group-hover:text-black
+            sm:h-16
+            sm:w-16
+          "
+        >
+          <FaArrowUp />
+        </span>
+      </button>
+
       <div
         className="
           mx-auto
-          max-w-7xl
+          flex
+          w-full
+          max-w-[1600px]
+          flex-col
+          gap-4
           px-5
-          sm:px-6
-          lg:px-8
+          py-7
+          sm:px-8
+          md:flex-row
+          md:items-center
+          md:justify-between
+          lg:px-12
         "
       >
-        <div
+        <span
           className="
-            relative
-            flex
-            flex-col
-            items-center
-            gap-4
+            font-mono-tech
+            text-[10px]
+            tracking-[0.2em]
+            text-orange-400
+          "
+          aria-hidden="true"
+        >
+          NS
+        </span>
 
-            border-t
-            border-white/10
-            pt-8
-
-            md:flex-row
-            md:justify-center
+        <p
+          className="
+            text-sm
+            text-slate-500
           "
         >
-          <p
-            className="
-              text-center
-              text-sm
-              text-slate-500
-            "
-          >
-            Built with ❤️ by Nilay Srivastava • © 2026 All Rights Reserved
-          </p>
-
-          <button
-            onClick={() => scrollToSection("home")}
-            className="
-              flex
-              h-10
-              w-10
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-white
-              bg-white
-              text-black
-              transition-all
-              duration-300
-
-              hover:-translate-y-1
-              hover:shadow-[0_0_20px_rgba(255,255,255,0.35)]
-
-              md:absolute
-              md:right-0
-            "
-          >
-            <FaArrowUp />
-          </button>
-        </div>
+          Built with ❤️ by Nilay Srivastava • © 2026 All Rights Reserved
+        </p>
       </div>
     </footer>
   );
