@@ -86,7 +86,7 @@ const Navbar = () => {
           duration-500
           ${
             scrolled
-              ? "border-orange-500/25 bg-black/90 backdrop-blur-xl"
+              ? "border-blue-300/25 bg-black/90 backdrop-blur-xl"
               : "border-white/15 bg-black/35 backdrop-blur-sm"
           }
         `}
@@ -138,7 +138,7 @@ const Navbar = () => {
                   top-0
                   h-1
                   w-1
-                  bg-orange-500
+                  bg-blue-300
                   transition-transform
                   duration-300
                   group-hover:scale-150
@@ -185,7 +185,7 @@ const Navbar = () => {
                     transition-colors
                     duration-300
                     last:border-r
-                    hover:text-orange-300
+                    hover:text-blue-300
                     lg:min-w-[124px]
                     lg:px-6
                   "
@@ -197,8 +197,8 @@ const Navbar = () => {
                       duration-300
                       ${
                         isActive
-                          ? "text-orange-400"
-                          : "text-white/35 group-hover:text-orange-500"
+                          ? "text-sky-200"
+                          : "text-white/35 group-hover:text-blue-300"
                       }
                     `}
                   >
@@ -228,7 +228,7 @@ const Navbar = () => {
                       h-px
                       origin-center
                       scale-x-0
-                      bg-orange-500
+                      bg-blue-300
                       transition-transform
                       duration-500
                       ease-out
@@ -250,7 +250,7 @@ const Navbar = () => {
                         left-3
                         right-3
                         h-px
-                        bg-orange-500
+                        bg-blue-300
                         shadow-[0_0_12px_rgba(231,91,22,0.65)]
                       "
                     />
@@ -287,7 +287,7 @@ const Navbar = () => {
                 className="
                   absolute
                   inset-0
-                  bg-orange-500
+                  bg-blue-300
                 "
               />
               <span
@@ -295,7 +295,7 @@ const Navbar = () => {
                   relative
                   h-2
                   w-2
-                  bg-amber-400
+                  bg-stone-200
                 "
               />
             </span>
@@ -316,7 +316,7 @@ const Navbar = () => {
               text-white
               transition-colors
               duration-300
-              hover:text-orange-400
+              hover:text-sky-200
               md:hidden
             "
           >
@@ -378,7 +378,7 @@ const Navbar = () => {
                     top-0
                     h-1
                     w-1
-                    bg-orange-500
+                    bg-blue-300
                   "
                 />
               </div>
@@ -387,7 +387,7 @@ const Navbar = () => {
                 type="button"
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
-                whileHover={{ rotate: 90, color: "#f97316" }}
+                whileHover={{ rotate: 90, color: "#93C5FD" }}
                 whileTap={{ scale: 0.92 }}
                 className="
                   cursor-pointer
@@ -444,8 +444,8 @@ const Navbar = () => {
                         duration-300
                         ${
                           isActive
-                            ? "text-orange-400"
-                            : "text-white/35 group-hover:text-orange-400"
+                            ? "text-sky-200"
+                            : "text-white/35 group-hover:text-sky-200"
                         }
                       `}
                     >
@@ -481,7 +481,7 @@ const Navbar = () => {
                         ml-auto
                         h-px
                         w-0
-                        bg-orange-500
+                        bg-blue-300
                         transition-all
                         duration-500
                         group-hover:w-12
@@ -508,7 +508,7 @@ const Navbar = () => {
                 className="
                   h-2
                   w-2
-                  bg-orange-500
+                  bg-blue-300
                   shadow-[0_0_12px_rgba(231,91,22,0.55)]
                 "
               />

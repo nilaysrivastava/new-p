@@ -78,7 +78,7 @@ const Experience = () => {
         relative
         overflow-hidden
         border-t
-        border-orange-500/20
+        border-blue-300/20
         bg-black/35
         py-24
         sm:py-28
@@ -122,7 +122,7 @@ const Experience = () => {
               font-semibold
               leading-[0.82]
               tracking-[-0.065em]
-              text-stroke-orange
+              text-blue-300
             "
           >
             Experience
@@ -131,7 +131,7 @@ const Experience = () => {
           <p
             className="
               border-l
-              border-orange-500/65
+              border-blue-300/65
               pl-5
               text-sm
               leading-7
@@ -142,7 +142,8 @@ const Experience = () => {
               lg:ml-auto
             "
           >
-            Internship experience across Software Engineering, GenAI, Machine Learning, and Cloud-Based Systems.
+            Internship experience across Software Engineering, GenAI, Machine
+            Learning, and Cloud-Based Systems.
           </p>
         </motion.div>
 
@@ -195,7 +196,7 @@ const Experience = () => {
                     text-white/25
                     transition-colors
                     duration-300
-                    group-hover:text-amber-400
+                    group-hover:text-stone-200
                     lg:mt-6
                   "
                 />
@@ -217,7 +218,7 @@ const Experience = () => {
                     text-white
                     transition-colors
                     duration-300
-                    group-hover:text-orange-300
+                    group-hover:text-blue-300
                   "
                 >
                   {exp.role}
@@ -230,7 +231,7 @@ const Experience = () => {
                     text-xs
                     uppercase
                     tracking-[0.12em]
-                    text-amber-300
+                    text-sky-100
                   "
                 >
                   {exp.company}
@@ -314,7 +315,7 @@ const Experience = () => {
                         text-white/55
                         transition-colors
                         duration-200
-                        hover:text-amber-300
+                        hover:text-sky-100
                         sm:border-r
                         sm:px-3
                         sm:first:pl-0
@@ -348,7 +349,7 @@ const Experience = () => {
                         text-white/45
                         transition-colors
                         duration-200
-                        hover:text-orange-300
+                        hover:text-blue-300
                       "
                     >
                       {techIndex > 0 && (
@@ -358,7 +359,7 @@ const Experience = () => {
                             h-1
                             w-1
                             rotate-45
-                            bg-orange-500
+                            bg-blue-300
                           "
                         />
                       )}
@@ -377,7 +378,7 @@ const Experience = () => {
                   w-full
                   origin-left
                   scale-x-0
-                  bg-orange-500
+                  bg-blue-300
                   transition-transform
                   duration-700
                   group-hover:scale-x-100

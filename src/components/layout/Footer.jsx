@@ -11,7 +11,7 @@ const Footer = () => {
     <footer
       className="
         border-t
-        border-orange-500/25
+        border-blue-300/25
         bg-[#030303]
       "
     >
@@ -44,7 +44,7 @@ const Footer = () => {
             inset-0
             origin-bottom
             scale-y-0
-            bg-orange-600
+            bg-sky-200
             transition-transform
             duration-700
             ease-out
@@ -81,8 +81,8 @@ const Footer = () => {
             items-center
             justify-center
             border
-            border-orange-500
-            text-orange-400
+            border-blue-300
+            text-sky-200
             transition-all
             duration-500
             group-hover:-translate-y-2
@@ -116,9 +116,9 @@ const Footer = () => {
         <span
           className="
             font-mono-tech
-            text-[10px]
+            text-xl
             tracking-[0.2em]
-            text-orange-400
+            text-sky-200
           "
           aria-hidden="true"
         >
@@ -131,7 +131,7 @@ const Footer = () => {
             text-slate-500
           "
         >
-          Built with ❤️ by Nilay Srivastava • © 2026 All Rights Reserved
+          Built with 💙 by Nilay Srivastava • © 2026 All Rights Reserved
         </p>
       </div>
     </footer>

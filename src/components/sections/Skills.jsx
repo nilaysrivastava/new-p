@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
 
-import {
-  FaBrain,
-  FaCode,
-  FaCloud,
-  FaDatabase,
-} from "react-icons/fa";
+import { FaBrain, FaCode, FaCloud, FaDatabase } from "react-icons/fa";
 
 const skillCategories = [
   {
@@ -97,9 +92,7 @@ const skillCategories = [
   },
 ];
 
-const allSkills = skillCategories.flatMap(
-  (category) => category.skills,
-);
+const allSkills = skillCategories.flatMap((category) => category.skills);
 
 const Skills = () => {
   return (
@@ -109,7 +102,7 @@ const Skills = () => {
         relative
         overflow-hidden
         border-t
-        border-orange-500/20
+        border-blue-300/20
         bg-black/35
         py-24
         sm:py-28
@@ -166,10 +159,7 @@ const Skills = () => {
                 text-white
               "
             >
-              Skills{" "}
-              <span className="text-stroke-orange">
-                & Technologies
-              </span>
+              Skills <span className="text-blue-300">& Technologies</span>
             </h2>
           </div>
 
@@ -177,7 +167,7 @@ const Skills = () => {
             className="
               max-w-2xl
               border-l
-              border-orange-500/65
+              border-blue-300/65
               pl-5
               text-sm
               leading-7
@@ -188,7 +178,10 @@ const Skills = () => {
               lg:ml-auto
             "
           >
-            Technologies and concepts I have worked with through internships, projects, research, and open-source contributions. A mix of software development, artificial intelligence, machine learning, cloud infrastructure, and computer science fundamentals.
+            Technologies and concepts I have worked with through internships,
+            projects, research, and open-source contributions. A mix of software
+            development, artificial intelligence, machine learning, cloud
+            infrastructure, and computer science fundamentals.
           </p>
         </motion.div>
 
@@ -244,7 +237,7 @@ const Skills = () => {
                       font-mono-tech
                       text-[10px]
                       tracking-[0.2em]
-                      text-orange-400
+                      text-sky-200
                     "
                   >
                     {number}
@@ -256,7 +249,7 @@ const Skills = () => {
                       text-white/35
                       transition-colors
                       duration-300
-                      group-hover:text-amber-400
+                      group-hover:text-stone-200
                       lg:mt-5
                     "
                   />
@@ -271,7 +264,7 @@ const Skills = () => {
                     text-white
                     transition-colors
                     duration-300
-                    group-hover:text-orange-300
+                    group-hover:text-blue-300
                     sm:text-3xl
                     lg:pr-8
                   "
@@ -303,7 +296,7 @@ const Skills = () => {
                         text-white/55
                         transition-colors
                         duration-200
-                        hover:text-amber-300
+                        hover:text-sky-100
                         sm:text-xs
                       "
                     >
@@ -317,7 +310,7 @@ const Skills = () => {
                             transition-all
                             duration-300
                             group-hover/skill:w-5
-                            group-hover/skill:bg-orange-500
+                            group-hover/skill:bg-blue-300
                           "
                         />
                       )}
@@ -336,8 +329,8 @@ const Skills = () => {
                     origin-left
                     scale-x-0
                     bg-gradient-to-r
-                    from-orange-600
-                    via-amber-400
+                    from-sky-200
+                    via-stone-200
                     to-transparent
                     transition-transform
                     duration-700
@@ -362,7 +355,7 @@ const Skills = () => {
                     w-24
                     bg-gradient-to-r
                     from-transparent
-                    via-orange-400/75
+                    via-sky-200/75
                     to-transparent
                     opacity-0
                     transition-opacity
@@ -381,7 +374,7 @@ const Skills = () => {
           mt-20
           overflow-hidden
           border-y
-          border-orange-500/25
+          border-blue-300/25
           bg-[#070503]
           py-5
           sm:mt-24
@@ -426,7 +419,7 @@ const Skills = () => {
                       text-[clamp(1.8rem,3.5vw,4.25rem)]
                       font-medium
                       tracking-[-0.035em]
-                      text-orange-500
+                      text-blue-300
                     "
                   >
                     {skill}
@@ -438,7 +431,7 @@ const Skills = () => {
                       w-1.5
                       rotate-45
                       border
-                      border-amber-400
+                      border-stone-200
                       sm:mx-8
                     "
                   />

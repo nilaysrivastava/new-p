@@ -5,11 +5,7 @@ import {
   FaArrowUpRightFromSquare,
 } from "react-icons/fa6";
 
-const impact = [
-  "2 PRs Merged",
-  "Computer Vision",
-  "PyTorch Ecosystem",
-];
+const impact = ["2 PRs Merged", "Computer Vision", "PyTorch Ecosystem"];
 
 const technologies = [
   "PyTorch",
@@ -27,7 +23,7 @@ const OpenSource = () => {
         relative
         overflow-hidden
         border-t
-        border-orange-500/20
+        border-blue-300/20
         bg-black/35
         py-24
         sm:py-28
@@ -84,10 +80,7 @@ const OpenSource = () => {
                 text-white
               "
             >
-              Open{" "}
-              <span className="text-stroke-orange">
-                Source
-              </span>
+              Open <span className="text-blue-300">Source</span>
             </h2>
           </div>
 
@@ -95,7 +88,7 @@ const OpenSource = () => {
             className="
               max-w-2xl
               border-l
-              border-orange-500/65
+              border-blue-300/65
               pl-5
               text-sm
               leading-7
@@ -106,9 +99,8 @@ const OpenSource = () => {
               lg:ml-auto
             "
           >
-            Contributing to production-grade open source
-            software and collaborating with global developer
-            communities.
+            Contributing to production-grade open source software and
+            collaborating with global developer communities.
           </p>
         </motion.div>
 
@@ -152,8 +144,8 @@ const OpenSource = () => {
                   items-center
                   justify-center
                   border
-                  border-orange-500/55
-                  text-orange-400
+                  border-blue-300/55
+                  text-sky-200
                 "
               >
                 <FaCodeBranch size={17} />
@@ -179,7 +171,7 @@ const OpenSource = () => {
                     text-[10px]
                     uppercase
                     tracking-[0.16em]
-                    text-orange-300
+                    text-blue-300
                   "
                 >
                   Open Source Contributor
@@ -217,7 +209,7 @@ const OpenSource = () => {
                 className="
                   font-display
                   text-2xl
-                  text-amber-300
+                  text-sky-100
                   lg:mt-8
                   lg:block
                   lg:text-3xl
@@ -257,7 +249,7 @@ const OpenSource = () => {
                 className="
                   font-display
                   text-2xl
-                  text-orange-300
+                  text-blue-300
                   lg:mt-8
                   lg:block
                   lg:text-3xl
@@ -294,7 +286,7 @@ const OpenSource = () => {
                   text-[9px]
                   uppercase
                   tracking-[0.17em]
-                  text-orange-400
+                  text-sky-200
                 "
               >
                 <FaGithub size={13} />
@@ -303,6 +295,8 @@ const OpenSource = () => {
 
               <a
                 href="https://github.com/kornia/kornia"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
                   group
                   mt-8
@@ -319,8 +313,8 @@ const OpenSource = () => {
                   text-white/65
                   transition-colors
                   duration-300
-                  hover:border-orange-500
-                  hover:text-orange-300
+                  hover:border-blue-300
+                  hover:text-blue-300
                 "
               >
                 <FaGithub />
@@ -360,8 +354,8 @@ const OpenSource = () => {
                 "
                 aria-hidden="true"
               >
-                <span className="h-1.5 w-1.5 bg-orange-600" />
-                <span className="h-1.5 w-1.5 bg-amber-500/65" />
+                <span className="h-1.5 w-1.5 bg-sky-200" />
+                <span className="h-1.5 w-1.5 bg-sky-100/65" />
                 <span className="h-1.5 w-1.5 bg-white/20" />
               </div>
 
@@ -377,7 +371,7 @@ const OpenSource = () => {
                     pt-1
                     font-mono-tech
                     text-sm
-                    text-orange-500
+                    text-blue-300
                   "
                   aria-hidden="true"
                 >
@@ -394,12 +388,11 @@ const OpenSource = () => {
                     sm:leading-8
                   "
                 >
-                  Contributed to Kornia, one of the leading
-                  open-source computer vision libraries built on
-                  top of PyTorch. Added support for RandomAffine
-                  padding mode handling and fixed a PyTorch
-                  broadcasting issue affecting multi-channel
-                  affine transformations.
+                  Contributed to Kornia, one of the leading open-source computer
+                  vision libraries built on top of PyTorch. Added support for
+                  RandomAffine padding mode handling and fixed a PyTorch
+                  broadcasting issue affecting multi-channel affine
+                  transformations.
                 </p>
               </div>
 
@@ -416,7 +409,7 @@ const OpenSource = () => {
                   bottom-0
                   h-px
                   w-24
-                  bg-orange-500
+                  bg-blue-300
                 "
               />
             </div>
@@ -444,7 +437,7 @@ const OpenSource = () => {
                   py-6
                   transition-colors
                   duration-300
-                  hover:text-orange-300
+                  hover:text-blue-300
                   md:border-b-0
                   md:border-r
                   md:px-7
@@ -456,7 +449,7 @@ const OpenSource = () => {
                     font-mono-tech
                     text-[9px]
                     tracking-[0.16em]
-                    text-orange-400
+                    text-sky-200
                   "
                 >
                   {String(index + 1).padStart(2, "0")}
@@ -470,7 +463,7 @@ const OpenSource = () => {
                     text-white/60
                     transition-colors
                     duration-300
-                    group-hover:text-orange-300
+                    group-hover:text-blue-300
                   "
                 >
                   {item}
@@ -510,7 +503,7 @@ const OpenSource = () => {
                     text-white/50
                     transition-colors
                     duration-200
-                    hover:text-amber-300
+                    hover:text-sky-100
                   "
                 >
                   {index > 0 && (
@@ -520,7 +513,7 @@ const OpenSource = () => {
                         h-1
                         w-1
                         rotate-45
-                        bg-orange-500
+                        bg-blue-300
                       "
                     />
                   )}
@@ -539,6 +532,8 @@ const OpenSource = () => {
             >
               <motion.a
                 href="https://github.com/kornia/kornia/pull/3388"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ y: -3 }}
                 whileTap={{ y: 0 }}
                 className="
@@ -547,8 +542,8 @@ const OpenSource = () => {
                   items-center
                   gap-2
                   border
-                  border-orange-500
-                  bg-orange-600
+                  border-blue-300
+                  bg-sky-200
                   px-5
                   font-mono-tech
                   text-[10px]
@@ -559,7 +554,7 @@ const OpenSource = () => {
                   transition-colors
                   duration-300
                   hover:bg-transparent
-                  hover:text-orange-300
+                  hover:text-blue-300
                 "
               >
                 <FaArrowUpRightFromSquare />
@@ -568,6 +563,8 @@ const OpenSource = () => {
 
               <motion.a
                 href="https://github.com/kornia/kornia/pull/3391"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ y: -3 }}
                 whileTap={{ y: 0 }}
                 className="
@@ -576,8 +573,8 @@ const OpenSource = () => {
                   items-center
                   gap-2
                   border
-                  border-orange-500
-                  bg-orange-600
+                  border-blue-300
+                  bg-sky-200
                   px-5
                   font-mono-tech
                   text-[10px]
@@ -588,7 +585,7 @@ const OpenSource = () => {
                   transition-colors
                   duration-300
                   hover:bg-transparent
-                  hover:text-orange-300
+                  hover:text-blue-300
                 "
               >
                 <FaArrowUpRightFromSquare />

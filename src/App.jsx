@@ -7,6 +7,9 @@ import CursorFollower from "./components/ui/CursorFollower";
 import ScrollProgress from "./components/ui/ScrollProgress";
 import Stardust from "./components/ui/Stardust";
 import Preloader from "./components/ui/Preloader";
+import EasterEgg from "./components/ui/EasterEgg";
+import SectionTransition from "./components/ui/SectionTransition";
+import ResumeModal from "./components/ui/ResumeModal";
 
 import Hero from "./components/sections/Hero";
 import ScrollStatement from "./components/sections/ScrollStatement";
@@ -37,16 +40,16 @@ function App() {
   }, []);
 
 
-const PROGRESS_DURATION = 1000;
-const HOLD_DURATION = 1000;
+  const PROGRESS_DURATION = 3000;
+  const HOLD_DURATION = 500;
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setLoading(false);
-  }, PROGRESS_DURATION + HOLD_DURATION);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, PROGRESS_DURATION + HOLD_DURATION);
 
-  return () => clearTimeout(timer);
-}, []);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -58,16 +61,45 @@ useEffect(() => {
           <Stardust />
           <ScrollProgress />
           <CursorFollower />
+          <EasterEgg />
+          <ResumeModal />
 
           <main>
             <Hero />
+            <SectionTransition
+              number="01"
+              label="INTERFACE READY"
+              word="START"
+            />
             <ScrollStatement />
+            <SectionTransition number="02" label="TECH STACK" word="STACK" />
             {/* <About /> */}
             <Skills />
+            <SectionTransition
+              number="03"
+              label="FIELD EXPERIENCE"
+              word="WORK"
+            />
             <Experience />
+            <SectionTransition
+              number="04"
+              label="PROJECT INDEX"
+              word="BUILD"
+            />
             <Projects />
+            <SectionTransition
+              number="05"
+              label="OPEN SOURCE SIGNAL"
+              word="SOURCE"
+            />
             <OpenSource />
+            <SectionTransition number="06" label="MILESTONES" word="WINS" />
             <Achievements />
+            <SectionTransition
+              number="07"
+              label="FINAL HANDSHAKE"
+              word="CONNECT"
+            />
             <Contact />
             <Footer />
           </main>

@@ -1,11 +1,8 @@
 import { useRef } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import profile from "../../assets/images/profile.png";
 import { socials } from "../../data/socials";
+import RotatingMicrocopy from "../ui/RotatingMicrocopy";
 
 const highlights = [
   "600+ DSA Problems",
@@ -17,196 +14,12 @@ const highlights = [
   "Semi-Finalist TenzorX 2026 National AI Hackathon",
 ];
 
-const TechGlobe = () => {
-  return (
-    <div
-      aria-hidden="true"
-      className="
-        pointer-events-none
-        absolute
-        left-[57%]
-        top-[38%]
-        z-[5]
-        hidden
-        h-[clamp(280px,31vw,520px)]
-        w-[clamp(280px,31vw,520px)]
-        -translate-x-1/2
-        -translate-y-1/2
-        md:block
-      "
-    >
-      <div
-        className="
-          absolute
-          inset-[9%]
-          rounded-full
-          border
-          border-orange-500/40
-          bg-[radial-gradient(circle_at_38%_35%,rgba(242,165,26,0.18),rgba(231,91,22,0.08)_38%,transparent_68%)]
-          shadow-[inset_0_0_60px_rgba(231,91,22,0.14),0_0_80px_rgba(231,91,22,0.10)]
-        "
-      />
-
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{
-          duration: 32,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        className="
-          absolute
-          inset-[3%]
-          rounded-full
-          border
-          border-dashed
-          border-orange-500/50
-        "
-      >
-        <span
-          className="
-            absolute
-            left-1/2
-            top-0
-            h-2
-            w-2
-            -translate-x-1/2
-            rounded-full
-            bg-amber-400
-            shadow-[0_0_18px_rgba(242,165,26,0.75)]
-          "
-        />
-        <span
-          className="
-            absolute
-            bottom-[12%]
-            right-[8%]
-            h-1.5
-            w-1.5
-            rounded-full
-            bg-orange-500
-            shadow-[0_0_14px_rgba(231,91,22,0.65)]
-          "
-        />
-      </motion.div>
-
-      <motion.div
-        animate={{ rotate: -360 }}
-        transition={{
-          duration: 24,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        className="
-          absolute
-          inset-[13%]
-          rotate-[58deg]
-          rounded-full
-          border
-          border-orange-400/45
-        "
-      >
-        <span
-          className="
-            absolute
-            left-[16%]
-            top-[6%]
-            h-1.5
-            w-1.5
-            rounded-full
-            bg-orange-300
-          "
-        />
-      </motion.div>
-
-      <div
-        className="
-          absolute
-          inset-x-[9%]
-          top-1/2
-          h-[28%]
-          -translate-y-1/2
-          rounded-[50%]
-          border
-          border-amber-400/40
-        "
-      />
-      <div
-        className="
-          absolute
-          inset-y-[9%]
-          left-1/2
-          w-[30%]
-          -translate-x-1/2
-          rounded-[50%]
-          border
-          border-orange-400/40
-        "
-      />
-      <div
-        className="
-          absolute
-          inset-y-[9%]
-          left-1/2
-          w-[68%]
-          -translate-x-1/2
-          rounded-[50%]
-          border
-          border-orange-500/30
-        "
-      />
-
-      <motion.div
-        animate={{
-          scale: [1, 1.08, 1],
-          opacity: [0.55, 0.9, 0.55],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="
-          absolute
-          left-1/2
-          top-1/2
-          h-3
-          w-3
-          -translate-x-1/2
-          -translate-y-1/2
-          rounded-full
-          border
-          border-amber-300
-          bg-orange-500/35
-          shadow-[0_0_28px_rgba(231,91,22,0.65)]
-        "
-      />
-
-      <motion.span
-        animate={{
-          top: ["18%", "82%", "18%"],
-          opacity: [0, 0.65, 0],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="
-          absolute
-          left-[12%]
-          h-px
-          w-[76%]
-          bg-gradient-to-r
-          from-transparent
-          via-amber-300/70
-          to-transparent
-          shadow-[0_0_12px_rgba(242,165,26,0.4)]
-        "
-      />
-    </div>
-  );
-};
+const availabilityMessages = [
+  "available for opportunities",
+  "open to collaboration",
+  "building with intent",
+  "systems nominal",
+];
 
 const Hero = () => {
   const sectionRef = useRef(null);
@@ -218,28 +31,12 @@ const Hero = () => {
   const contentOpacity = useTransform(
     scrollYProgress,
     [0, 0.58, 1],
-    [1, 0.9, 0],
+    [1, 0.9, 0]
   );
-  const contentScale = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [1, 0.92],
-  );
-  const contentY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, 110],
-  );
-  const portraitY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, -70],
-  );
-  const nameY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, 55],
-  );
+  const contentScale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 110]);
+  const portraitY = useTransform(scrollYProgress, [0, 1], [0, -70]);
+  const nameY = useTransform(scrollYProgress, [0, 1], [0, 55]);
 
   return (
     <section
@@ -312,19 +109,29 @@ const Hero = () => {
             Software Engineer · AI/ML Developer · Open Source Contributor
           </h2>
 
-          <span
+          <div
             className="
               hidden
-              h-1.5
-              w-1.5
-              bg-orange-500
-              shadow-[0_0_12px_rgba(231,91,22,0.65)]
-              sm:block
+              items-center
+              gap-3
+              sm:flex
             "
-          />
+          >
+            <span
+              className="
+                h-1.5
+                w-1.5
+                bg-blue-300
+                shadow-[0_0_12px_rgba(147,197,253,0.3)]
+              "
+            />
+            <RotatingMicrocopy
+              messages={availabilityMessages}
+              interval={3600}
+              className="min-w-[19ch] justify-end"
+            />
+          </div>
         </motion.div>
-
-        <TechGlobe />
 
         <motion.h1
           style={{ y: nameY }}
@@ -360,7 +167,7 @@ const Hero = () => {
               block
               translate-x-[0.08em]
               -translate-y-[0.18em]
-              text-stroke-orange
+              text-blue-300
               sm:translate-x-[0.16em]
             "
           >
@@ -370,11 +177,10 @@ const Hero = () => {
 
         <div
           className="
-            relative
             z-20
             mt-10
             grid
-            items-end
+            items-center
             gap-9
             lg:mt-4
             lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.52fr)]
@@ -398,7 +204,7 @@ const Hero = () => {
             <p
               className="
                 border-l
-                border-orange-500/70
+                border-blue-300/70
                 pl-5
                 text-sm
                 leading-7
@@ -408,26 +214,22 @@ const Hero = () => {
                 sm:leading-8
               "
             >
-              Final-year student at ABV-IIITM Gwalior with interests in software engineering, machine learning, and open-source development. I've worked on
-              <span className="font-semibold text-orange-300">
+              Final-year student at ABV-IIITM Gwalior with interests in software
+              engineering, machine learning, and open-source development. I've
+              worked on
+              <span className="font-semibold text-blue-300">
                 {" "}
                 Graph Learning
               </span>
-              ,
-              <span className="font-semibold text-amber-300">
-                {" "}
-                NLP
-              </span>
-              ,
-              <span className="font-semibold text-orange-400">
+              ,<span className="font-semibold text-sky-100"> NLP</span>,
+              <span className="font-semibold text-sky-200">
                 {" "}
                 Computer Vision
               </span>
               , and
-              <span className="font-semibold text-amber-300">
+              <span className="font-semibold text-sky-100">
                 {" "}
-                Full-Stack Applications
-                {" "}
+                Full-Stack Applications{" "}
               </span>
               through internships, research projects, and hackathons.
             </p>
@@ -443,6 +245,7 @@ const Hero = () => {
             >
               <motion.a
                 href="#projects"
+                data-cursor-hint="view selected work"
                 whileHover={{ y: -3 }}
                 whileTap={{ y: 0 }}
                 className="
@@ -453,8 +256,8 @@ const Hero = () => {
                   items-center
                   overflow-hidden
                   border
-                  border-orange-500
-                  bg-orange-600
+                  border-blue-300
+                  bg-sky-200
                   px-7
                   font-mono-tech
                   text-xs
@@ -465,7 +268,7 @@ const Hero = () => {
                   transition-colors
                   duration-300
                   hover:bg-transparent
-                  hover:text-orange-300
+                  hover:text-blue-300
                 "
               >
                 <span
@@ -477,14 +280,18 @@ const Hero = () => {
                     transition-all
                     duration-300
                     group-hover:w-8
-                    group-hover:bg-orange-400
+                    group-hover:bg-sky-200
                   "
                 />
                 View Projects
               </motion.a>
 
-              <motion.a
-                href="#"
+              <motion.button
+                type="button"
+                onClick={() =>
+                  window.dispatchEvent(new Event("open-resume-modal"))
+                }
+                data-cursor-hint="open résumé"
                 whileHover={{ y: -3 }}
                 whileTap={{ y: 0 }}
                 className="
@@ -504,8 +311,8 @@ const Hero = () => {
                   text-white
                   transition-all
                   duration-300
-                  hover:border-orange-500/80
-                  hover:text-orange-300
+                  hover:border-blue-300/80
+                  hover:text-blue-300
                 "
               >
                 Resume
@@ -517,10 +324,10 @@ const Hero = () => {
                     bg-white/45
                     transition-colors
                     duration-300
-                    group-hover:bg-orange-400
+                    group-hover:bg-sky-200
                   "
                 />
-              </motion.a>
+              </motion.button>
             </div>
 
             <div
@@ -539,7 +346,8 @@ const Hero = () => {
                     key={index}
                     href={social.link}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
+                    data-cursor-hint="view profile"
                     whileHover={{ y: -4 }}
                     whileTap={{ scale: 0.94 }}
                     className="
@@ -553,9 +361,9 @@ const Hero = () => {
                       text-white/65
                       transition-all
                       duration-300
-                      hover:border-orange-500/65
-                      hover:bg-orange-500/10
-                      hover:text-orange-300
+                      hover:border-blue-300/65
+                      hover:bg-blue-300/10
+                      hover:text-blue-300
                     "
                   >
                     <Icon size={16} />
@@ -565,59 +373,69 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            style={{ y: portraitY }}
-            initial={{ opacity: 0, scale: 0.9, x: 30 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{
-              delay: 0.3,
-              duration: 1,
-              ease: [0.16, 1, 0.3, 1],
-            }}
+          <div
             className="
-              relative
               mx-auto
               w-full
               max-w-[min(410px,40vh)]
-              lg:mx-0
-              lg:ml-auto
-              lg:mr-0
+              lg:absolute
+              lg:right-12
+              lg:top-1/2
+              lg:z-20
+              lg:w-[min(410px,40vh)]
+              lg:-translate-y-1/2
+              2xl:right-16
+              2xl:w-[440px]
               2xl:max-w-[440px]
             "
           >
-            <div
-              className="
-                absolute
-                left-1/2
-                top-1/2
-                h-[115%]
-                w-[125%]
-                -translate-x-1/2
-                -translate-y-1/2
-                bg-[radial-gradient(ellipse_at_center,rgba(190,70,16,0.28)_0%,rgba(216,132,24,0.10)_38%,transparent_70%)]
-                blur-2xl
-              "
-            />
-
             <motion.div
-              animate={{
-                x: [0, 5, 0],
-                y: [0, -6, 0],
-              }}
+              style={{ y: portraitY }}
+              initial={{ opacity: 0, scale: 0.9, x: 30 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut",
+                delay: 0.3,
+                duration: 1,
+                ease: [0.16, 1, 0.3, 1],
               }}
               className="
                 relative
-                border
-                border-orange-500/60
-                p-2
+                w-full
               "
             >
               <div
                 className="
+                  absolute
+                  left-1/2
+                  top-1/2
+                  h-[115%]
+                  w-[125%]
+                  -translate-x-1/2
+                  -translate-y-1/2
+                  bg-[radial-gradient(ellipse_at_center,rgba(190,70,16,0.28)_0%,rgba(216,132,24,0.10)_38%,transparent_70%)]
+                  blur-2xl
+                "
+              />
+
+              <motion.div
+                animate={{
+                  x: [0, 5, 0],
+                  y: [0, -6, 0],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="
+                  relative
+                  border
+                  border-blue-300/60
+                  p-2
+                "
+              >
+                <div
+                  className="
                   absolute
                   -left-3
                   -top-3
@@ -625,11 +443,11 @@ const Hero = () => {
                   w-16
                   border-l
                   border-t
-                  border-amber-400
+                  border-stone-200
                 "
-              />
-              <div
-                className="
+                />
+                <div
+                  className="
                   absolute
                   -bottom-3
                   -right-3
@@ -637,22 +455,22 @@ const Hero = () => {
                   w-16
                   border-b
                   border-r
-                  border-orange-600
+                  border-sky-200
                 "
-              />
+                />
 
-              <div
-                className="
+                <div
+                  className="
                   relative
                   aspect-[4/5]
                   overflow-hidden
                   bg-[#0b0806]
                 "
-              >
-                <img
-                  src={profile}
-                  alt="Nilay"
-                  className="
+                >
+                  <img
+                    src={profile}
+                    alt="Nilay"
+                    className="
                     h-full
                     w-full
                     object-cover
@@ -660,18 +478,19 @@ const Hero = () => {
                     contrast-[1.04]
                     saturate-[0.9]
                   "
-                />
-                <div
-                  className="
+                  />
+                  <div
+                    className="
                     pointer-events-none
                     absolute
                     inset-0
                     bg-[linear-gradient(180deg,transparent_58%,rgba(3,3,3,0.62)_100%)]
                   "
-                />
-              </div>
+                  />
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
 
         <motion.div
@@ -718,7 +537,7 @@ const Hero = () => {
                 top-0
                 h-4
                 w-px
-                bg-orange-500
+                bg-blue-300
               "
             />
           </span>
@@ -734,7 +553,7 @@ const Hero = () => {
           w-full
           overflow-hidden
           border-y
-          border-orange-500/25
+          border-blue-300/25
           bg-[#070503]/95
           py-3
           backdrop-blur-md
@@ -782,7 +601,7 @@ const Hero = () => {
                       h-1
                       w-1
                       rotate-45
-                      bg-orange-500
+                      bg-blue-300
                       sm:mx-8
                     "
                   />

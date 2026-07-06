@@ -23,9 +23,9 @@ const ScrollProgress = () => {
         h-[3px]
         w-full
         bg-gradient-to-r
-        from-orange-600
-        via-orange-400
-        to-amber-400
+        from-sky-200
+        via-sky-200
+        to-stone-200
       "
     />
   );

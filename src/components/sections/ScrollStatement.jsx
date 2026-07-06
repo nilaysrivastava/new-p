@@ -74,8 +74,8 @@ const StatementRow = ({ items, reverse, duration }) => {
                       duration-300
                       ${
                         hoveredWord === wordKey
-                          ? "text-orange-600"
-                          : "text-stroke-orange"
+                          ? "text-sky-200"
+                          : "text-stroke-accent"
                       }
                     `}
                   >
@@ -89,7 +89,7 @@ const StatementRow = ({ items, reverse, duration }) => {
                       w-2
                       rotate-45
                       border
-                      border-orange-500
+                      border-blue-300
                       sm:mx-10
                       lg:mx-14
                     "
@@ -110,7 +110,7 @@ const ScrollStatement = () => (
         relative
         overflow-hidden
         border-y
-        border-orange-500/25
+        border-blue-300/25
         bg-[#030303]
         py-16
         sm:py-20

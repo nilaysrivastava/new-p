@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const cards = [
   {
     title: "Education",
-    accent: "from-orange-700 to-orange-500",
+    accent: "from-blue-300 to-blue-300",
     highlight: "8.21 CGPA",
     description:
       "Integrated B.Tech + M.Tech student at IIIT Gwalior with strong foundations in Artificial Intelligence, Mathematics, Machine Learning and Core Computer Science.",
@@ -18,7 +18,7 @@ const cards = [
 
   {
     title: "Current Focus",
-    accent: "from-amber-500 to-orange-600",
+    accent: "from-sky-100 to-sky-200",
     highlight: "Production AI Systems",
     description:
       "Building scalable AI systems that bridge research and production using deep learning, graph learning, NLP, OCR and modern software engineering.",
@@ -34,7 +34,7 @@ const cards = [
 
   {
     title: "Research Interests",
-    accent: "from-orange-800 to-amber-400",
+    accent: "from-blue-300 to-stone-200",
     highlight: "Graph Representation Learning",
     description:
       "Interested in learning algorithms that understand relationships, uncertainty and structure in complex real-world data.",
@@ -77,9 +77,9 @@ const About = () => {
               text-5xl
               font-bold
               bg-gradient-to-r
-              from-orange-600
-              via-orange-400
-              to-amber-300
+              from-sky-200
+              via-sky-200
+              to-sky-100
               bg-clip-text
               text-transparent
             "
@@ -99,22 +99,22 @@ const About = () => {
             "
           >
             I'm a pre-final year Integrated B.Tech + M.Tech student at
-            <span className="font-semibold text-orange-300">
+            <span className="font-semibold text-blue-300">
               {" "}
               IIIT Gwalior
             </span>
             , with experience spanning
-            <span className="font-semibold text-amber-300">
+            <span className="font-semibold text-sky-100">
               {" "}
               AI Engineering
             </span>
             ,
-            <span className="font-semibold text-orange-400">
+            <span className="font-semibold text-sky-200">
               {" "}
               Machine Learning Research
             </span>
             , and
-            <span className="font-semibold text-amber-300">
+            <span className="font-semibold text-sky-100">
               {" "}
               Scalable Software Systems
             </span>
@@ -144,9 +144,9 @@ const About = () => {
                   border
                   border-white/10
                   bg-gradient-to-r
-                  from-orange-700/10
-                  via-orange-500/10
-                  to-amber-400/10
+                  from-blue-300/10
+                  via-blue-300/10
+                  to-stone-200/10
                   px-4
                   py-2
                   text-sm
@@ -155,7 +155,7 @@ const About = () => {
                   transition-all
                   duration-300
                   hover:-translate-y-1
-                  hover:border-orange-400/30
+                  hover:border-sky-200/30
                   hover:shadow-[0_0_20px_rgba(231,91,22,0.2)]
                 "
               >
@@ -207,7 +207,7 @@ const About = () => {
                 backdrop-blur-xl
                 transition-all
                 duration-300
-                hover:border-orange-400/30
+                hover:border-sky-200/30
                 hover:shadow-[0_0_50px_rgba(231,91,22,0.15)]
               "
             >
@@ -218,9 +218,9 @@ const About = () => {
                   absolute
                   inset-0
                   bg-gradient-to-br
-                  from-orange-700/5
-                  via-orange-500/5
-                  to-amber-400/5
+                  from-blue-300/5
+                  via-blue-300/5
+                  to-stone-200/5
                   opacity-0
                   transition-opacity
                   duration-300
@@ -309,8 +309,8 @@ const About = () => {
                         backdrop-blur-xl
                         transition-all
                         duration-300
-                        hover:border-orange-400/40
-                        hover:text-amber-300
+                        hover:border-sky-200/40
+                        hover:text-sky-100
                         hover:shadow-[0_0_12px_rgba(231,91,22,0.2)]
                       "
                     >

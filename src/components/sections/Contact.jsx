@@ -22,21 +22,16 @@ const Contact = () => {
     const formData = new FormData(e.target);
 
     try {
-      const response = await fetch(
-        import.meta.env.VITE_FORMSPREE_ENDPOINT,
-        {
-          method: "POST",
-          body: formData,
-          headers: {
-            Accept: "application/json",
-          },
+      const response = await fetch(import.meta.env.VITE_FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
         },
-      );
+      });
 
       console.log(import.meta.env);
-      console.log(
-        import.meta.env.VITE_FORMSPREE_ENDPOINT,
-      );
+      console.log(import.meta.env.VITE_FORMSPREE_ENDPOINT);
 
       if (response.ok) {
         setStatus("success");
@@ -58,7 +53,7 @@ const Contact = () => {
         relative
         overflow-hidden
         border-t
-        border-orange-500/20
+        border-blue-300/20
         bg-black/40
         py-24
         sm:py-28
@@ -115,17 +110,14 @@ const Contact = () => {
                 text-white
               "
             >
-              Let's{" "}
-              <span className="text-stroke-orange">
-                Connect
-              </span>
+              Let's <span className="text-blue-300">Connect</span>
             </h2>
           </div>
 
           <p
             className="
               border-l
-              border-orange-500/65
+              border-blue-300/65
               pl-5
               text-sm
               leading-7
@@ -136,8 +128,8 @@ const Contact = () => {
               lg:ml-auto
             "
           >
-            Have an opportunity, project or research
-            collaboration in mind? I'd love to hear about it.
+            Have an opportunity, project or research collaboration in mind? I'd
+            love to hear about it.
           </p>
         </motion.div>
 
@@ -205,7 +197,7 @@ const Contact = () => {
                       font-mono-tech
                       text-[9px]
                       tracking-[0.18em]
-                      text-orange-400
+                      text-sky-200
                     "
                   >
                     {String(index + 1).padStart(2, "0")}
@@ -219,7 +211,7 @@ const Contact = () => {
                       text-white/55
                       transition-colors
                       duration-200
-                      group-hover:text-amber-300
+                      group-hover:text-sky-100
                     "
                   >
                     {item}
@@ -244,7 +236,8 @@ const Contact = () => {
                     key={index}
                     href={social.link}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
+                    data-cursor-hint="view profile"
                     whileHover={{ y: -4 }}
                     whileTap={{ scale: 0.94 }}
                     className="
@@ -258,9 +251,9 @@ const Contact = () => {
                       text-white/65
                       transition-all
                       duration-300
-                      hover:border-orange-500
-                      hover:bg-orange-500/10
-                      hover:text-amber-300
+                      hover:border-blue-300
+                      hover:bg-blue-300/10
+                      hover:text-sky-100
                     "
                   >
                     <Icon size={17} />
@@ -316,8 +309,8 @@ const Contact = () => {
                   transition-all
                   duration-300
                   placeholder:text-white/35
-                  focus:border-amber-400
-                  focus:bg-orange-500/[0.025]
+                  focus:border-stone-200
+                  focus:bg-blue-300/[0.025]
                   focus:px-3
                 "
               />
@@ -340,8 +333,8 @@ const Contact = () => {
                   transition-all
                   duration-300
                   placeholder:text-white/35
-                  focus:border-amber-400
-                  focus:bg-orange-500/[0.025]
+                  focus:border-stone-200
+                  focus:bg-blue-300/[0.025]
                   focus:px-3
                 "
               />
@@ -364,8 +357,8 @@ const Contact = () => {
                   transition-all
                   duration-300
                   placeholder:text-white/35
-                  focus:border-amber-400
-                  focus:bg-orange-500/[0.025]
+                  focus:border-stone-200
+                  focus:bg-blue-300/[0.025]
                   focus:px-3
                   sm:col-span-2
                 "
@@ -390,8 +383,8 @@ const Contact = () => {
                   transition-all
                   duration-300
                   placeholder:text-white/35
-                  focus:border-amber-400
-                  focus:bg-orange-500/[0.025]
+                  focus:border-stone-200
+                  focus:bg-blue-300/[0.025]
                   focus:px-3
                   sm:col-span-2
                 "
@@ -411,6 +404,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
+                  data-cursor-hint="send message"
                   className="
                     group
                     relative
@@ -418,7 +412,7 @@ const Contact = () => {
                     min-w-[210px]
                     overflow-hidden
                     border
-                    border-orange-500
+                    border-blue-300
                     bg-transparent
                     px-8
                     font-mono-tech
@@ -426,7 +420,7 @@ const Contact = () => {
                     font-semibold
                     uppercase
                     tracking-[0.13em]
-                    text-orange-300
+                    text-blue-300
                     transition-colors
                     duration-300
                     disabled:cursor-not-allowed
@@ -439,7 +433,7 @@ const Contact = () => {
                       inset-0
                       origin-left
                       scale-x-0
-                      bg-orange-600
+                      bg-sky-200
                       transition-transform
                       duration-500
                       ease-out
@@ -455,9 +449,7 @@ const Contact = () => {
                       group-hover:text-black
                     "
                   >
-                    {isSubmitting
-                      ? "Sending..."
-                      : "Send Message"}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </span>
                 </button>
 
@@ -469,13 +461,11 @@ const Contact = () => {
                   "
                 >
                   {status === "success" && (
-                    <p className="text-amber-300">
-                      Message sent successfully!
-                    </p>
+                    <p className="text-sky-100">Message sent successfully!</p>
                   )}
 
                   {status === "error" && (
-                    <p className="text-orange-400">
+                    <p className="text-sky-200">
                       Something went wrong. Please try again.
                     </p>
                   )}

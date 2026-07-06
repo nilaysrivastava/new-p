@@ -63,8 +63,11 @@ const focusAreas = [
   "AI Research",
   "Open Source Contributor",
   "Machine Learning",
-  "Graph Learning",
   "Software Engineering",
+  "Hackathons",
+  "Leadership",
+  "Data Structures & Algorithms",
+  "...",
 ];
 
 const Achievements = () => {
@@ -75,7 +78,7 @@ const Achievements = () => {
         relative
         overflow-hidden
         border-t
-        border-orange-500/20
+        border-blue-300/20
         bg-black/35
         py-24
         sm:py-28
@@ -134,16 +137,14 @@ const Achievements = () => {
               "
             >
               Achievements and{" "}
-              <span className="text-stroke-orange">
-                Positions of Responsibility
-              </span>
+              <span className="text-blue-300">Positions of Responsibility</span>
             </h2>
           </div>
 
           <p
             className="
               border-l
-              border-orange-500/65
+              border-blue-300/65
               pl-5
               text-sm
               leading-7
@@ -164,7 +165,7 @@ const Achievements = () => {
           mt-16
           overflow-hidden
           border-y
-          border-orange-500/30
+          border-blue-300/30
           bg-[#070503]
           py-5
           sm:mt-20
@@ -207,10 +208,10 @@ const Achievements = () => {
                     className="
                       mr-4
                       font-mono-tech
-                      text-[9px]
+                      text-xl
                       uppercase
                       tracking-[0.16em]
-                      text-amber-300
+                      text-sky-100
                     "
                   >
                     {achievement.value}
@@ -223,9 +224,7 @@ const Achievements = () => {
                       leading-none
                       tracking-[-0.045em]
                       ${
-                        index % 2 === 0
-                          ? "text-orange-500"
-                          : "text-stroke-orange"
+                        index % 2 === 0 ? "text-blue-300" : "text-stroke-accent"
                       }
                     `}
                   >
@@ -238,7 +237,7 @@ const Achievements = () => {
                       w-2
                       rotate-45
                       border
-                      border-orange-500
+                      border-blue-300
                       sm:mx-10
                     "
                   />
@@ -296,11 +295,7 @@ const Achievements = () => {
                   md:px-8
                   lg:px-10
                   lg:py-12
-                  ${
-                    index % 2 === 0
-                      ? "md:border-r md:border-white/15"
-                      : ""
-                  }
+                  ${index % 2 === 0 ? "md:border-r md:border-white/15" : ""}
                 `}
               >
                 <div
@@ -315,7 +310,7 @@ const Achievements = () => {
                       font-mono-tech
                       text-[10px]
                       tracking-[0.2em]
-                      text-orange-400
+                      text-sky-200
                     "
                   >
                     {number}
@@ -328,7 +323,7 @@ const Achievements = () => {
                       transition-all
                       duration-300
                       group-hover:scale-110
-                      group-hover:text-amber-400/75
+                      group-hover:text-stone-200/75
                     "
                   />
                 </div>
@@ -349,7 +344,7 @@ const Achievements = () => {
                         text-[10px]
                         uppercase
                         tracking-[0.14em]
-                        text-amber-300
+                        text-sky-100
                       "
                     >
                       {achievement.value}
@@ -365,7 +360,7 @@ const Achievements = () => {
                         text-white
                         transition-colors
                         duration-300
-                        group-hover:text-orange-300
+                        group-hover:text-blue-300
                       "
                     >
                       {achievement.title}
@@ -392,7 +387,7 @@ const Achievements = () => {
                     w-full
                     origin-left
                     scale-x-0
-                    bg-orange-500
+                    bg-blue-300
                     transition-transform
                     duration-700
                     group-hover:scale-x-100
@@ -422,7 +417,7 @@ const Achievements = () => {
               border-r
               border-white/15
               pr-5
-              text-orange-400
+              text-sky-200
             "
           >
             <FaAward size={15} />
@@ -445,7 +440,7 @@ const Achievements = () => {
                 text-white/45
                 transition-colors
                 duration-200
-                hover:text-amber-300
+                hover:text-sky-100
                 sm:px-5
               "
             >

@@ -23,25 +23,13 @@ const CursorFollower = () => {
     const enter = () => setVisible(true);
 
     window.addEventListener("mousemove", move);
-    document.documentElement.addEventListener(
-      "mouseleave",
-      leave,
-    );
-    document.documentElement.addEventListener(
-      "mouseenter",
-      enter,
-    );
+    document.documentElement.addEventListener("mouseleave", leave);
+    document.documentElement.addEventListener("mouseenter", enter);
 
     return () => {
       window.removeEventListener("mousemove", move);
-      document.documentElement.removeEventListener(
-        "mouseleave",
-        leave,
-      );
-      document.documentElement.removeEventListener(
-        "mouseenter",
-        enter,
-      );
+      document.documentElement.removeEventListener("mouseleave", leave);
+      document.documentElement.removeEventListener("mouseenter", enter);
     };
   }, []);
 
