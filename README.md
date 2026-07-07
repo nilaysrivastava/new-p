@@ -1,3 +1,5 @@
+<div align="center"> 
 # Portfolio
 
- View at: [http:\\new-p-jade.vercel.app]
+[View](https://main.dcvcdyghn1yjx.amplifyapp.com)
+</div>
